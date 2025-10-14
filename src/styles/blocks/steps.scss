@@ -1,0 +1,119 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.steps {
+  position: relative;
+  padding: 80px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+  }
+
+  &::before {
+    width: 700px;
+    top: -200px;
+    right: 0;
+    background-image: radial-gradient($purple 50%, $blue 50%);
+    z-index: -3;
+  }
+
+  &::after {
+    width: 500px;
+    bottom: -150px;
+    left: -150px;
+    background-color: $pink;
+    z-index: -3;
+  }
+
+  &__content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  &__cover {
+    width: 100%;
+    max-width: 630px;
+    aspect-ratio: 1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 70px;
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &-text {
+      @include desktop-text(body);
+      color: $white;
+
+      &-active {
+        @include desktop-text(span);
+        color: $blue;
+      }
+    }
+
+    &-separator {
+      width: 24px;
+      height: 1px;
+      background-color: $white;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+
+    &-title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    &-slogan {
+      @include desktop-text(headline);
+      color: $blue;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+
+      &-text {
+        @include desktop-text(body);
+        color: $grey;
+      }
+    }
+  }
+
+  &__button {
+    width: max-content;
+  }
+}

@@ -1,0 +1,12 @@
+@use "../../mixins" as *;
+@use "../../variables" as *;
+
+.form-input {
+  @include desktop-text(body);
+  padding-left: 8px;
+  width: 100%;
+  color: $grey;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}

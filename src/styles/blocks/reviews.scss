@@ -1,0 +1,140 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.reviews {
+  position: relative;
+  padding: 80px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+  }
+
+  &::before {
+    width: 500px;
+    top: -200px;
+    right: 0;
+    background-image: radial-gradient($pink 50%, $purple 50%);
+    z-index: -3;
+  }
+
+  &::after {
+    width: 600px;
+    bottom: -200px;
+    right: -100px;
+    background-image: radial-gradient($purple 50%, $blue 50%);
+    z-index: -3;
+  }
+
+  &__container {
+    margin-top: 72px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+  }
+
+  &__card {
+    @include panel-on-bg();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid $white;
+    border-radius: 16px;
+
+    &:nth-child(2) {
+      width: 50%;
+      position: absolute;
+      left: 25%;
+      top: -15%;
+      z-index: 4;
+    }
+
+    &:nth-child(3) {
+      width: 50%;
+      position: absolute;
+      left: 13%;
+      bottom: 2%;
+      z-index: 2;
+    }
+
+    &:nth-child(4) {
+      width: 50%;
+      position: absolute;
+      right: 0;
+      bottom: 29%;
+      z-index: 2;
+    }
+
+    &-header {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background-color: $white;
+      border-radius: 16px 16px 0 0;
+
+      &-avatar {
+        width: 64px;
+        aspect-ratio: 1;
+        border-radius: 100%;
+        object-fit: cover;
+        object-position: center;
+        overflow: hidden;
+      }
+
+      &-name {
+        @include desktop-text(h3);
+        color: $black;
+      }
+    }
+
+    &-content {
+      padding: 16px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      background-color: rgba($white, 0.8);
+      border-radius: 0 0 16px 16px;
+
+      &-text {
+        @include desktop-text(body);
+        color: $grey;
+      }
+
+      &-stars {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      &-star {
+        width: 24px;
+        aspect-ratio: 1;
+        background-image: url("../../images/star.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        &-active {
+          background-image: url("../../images/star-active.svg");
+        }
+      }
+    }
+  }
+
+  &__button {
+    align-self: flex-end;
+    width: max-content;
+  }
+}

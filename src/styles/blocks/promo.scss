@@ -1,0 +1,33 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.promo {
+  padding: 80px 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  background-color: $white;
+
+  &__cover {
+    width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+
+    &-title {
+      @include desktop-text(h1);
+      color: $black;
+    }
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+}

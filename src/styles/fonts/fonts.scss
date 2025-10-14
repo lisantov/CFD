@@ -1,0 +1,23 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Visuelt Pro';
+  src:
+    local('Visuelt Pro'),
+    url('./VisueltPro/VisueltPro-Regular.woff2') format('woff2'),
+    url('./VisueltPro/VisueltPro-Regular.woff') format('woff'),
+    url('./VisueltPro/VisueltPro-Regular.ttf') format('truetype'),
+    url('./VisueltPro/VisueltPro-Regular.eot') format('embedded-opentype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Visuelt Pro';
+  src:
+    local('Visuelt Pro'),
+    url('./VisueltPro/VisueltPro-Medium.woff2') format('woff2'),
+    url('./VisueltPro/VisueltPro-Medium.woff') format('woff'),
+    url('./VisueltPro/VisueltPro-Medium.ttf') format('truetype'),
+    url('./VisueltPro/VisueltPro-Medium.eot') format('embedded-opentype');
+  font-weight: 500;
+}

@@ -1,0 +1,15 @@
+@use "../../mixins" as *;
+@use "../../variables" as *;
+
+.form-span {
+  @include desktop-text(description);
+  padding-left: 8px;
+  width: 60%;
+  color: #595959;
+}
+
+.form-span-link {
+  @include desktop-text(description);
+  color: $blue;
+  text-decoration: none;
+}

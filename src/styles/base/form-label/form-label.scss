@@ -1,0 +1,17 @@
+@use "../../mixins" as *;
+@use "../../variables" as *;
+
+.form-label {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid rgba($white, 0.2);
+  border-radius: 16px;
+  background-color: $page;
+}
+
+.form-label:has(input:focus) {
+  outline: 2px solid rgba($blue, 0.8);
+}
