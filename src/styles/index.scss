@@ -1,0 +1,42 @@
+@use 'fonts/fonts';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@use "base/base";
+
+@use 'blocks/header';
+@use 'blocks/hero';
+@use 'blocks/advantages';
+@use 'blocks/steps';
+@use 'blocks/pricing';
+@use 'blocks/reviews';
+@use 'blocks/promo';
+@use 'blocks/faq';
+@use 'blocks/feedback';
+@use 'blocks/footer';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background-color: $page;
+  padding: $page-padding;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($white, 0.65);
+  backdrop-filter: blur(240px);
+  z-index: -2;
+}

@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+@mixin desktop-text($level) {
+  $styles: map-get($desktop-texts, $level);
+  @each $param, $value in $styles {
+    #{$param}: $value
+  }
+}
+
+@mixin mobile-text($level) {
+  $styles: map-get($mobile-texts, $level);
+  @each $param, $value in $styles {
+    #{$param}: $value
+  }
+}
+
+@mixin panel-on-white() {
+  @each $param, $value in $panels-on-white {
+    #{$param}: $value
+  }
+}
+
+@mixin panel-on-bg() {
+  @each $param, $value in $panels-on-bg {
+    #{$param}: $value
+  }
+}
