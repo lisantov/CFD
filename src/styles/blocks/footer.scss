@@ -1,6 +1,21 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
+@keyframes wobble {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  75% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 .footer {
   padding: 24px 56px;
   display: flex;
@@ -33,6 +48,16 @@
     text-decoration: none;
     gap: 8px;
     cursor: pointer;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+      transform: translateY(-3px)
+    }
+
+    &:hover img {
+      animation: wobble infinite 0.9s linear;
+    }
 
     &-text {
       @include desktop-text(body);

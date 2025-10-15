@@ -51,6 +51,11 @@
     color: $grey;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.15s ease-in-out;
+
+    &:hover {
+      color: rgba($blue, 0.7);
+    }
   }
 
   &__controls {
@@ -74,6 +79,14 @@
     cursor: pointer;
     border: none;
     background-color: transparent;
+  }
+
+  &__language {
+    transition: 0.15s ease-in-out;
+
+    &:hover {
+      color: rgba($blue, 0.7);
+    }
   }
 
   &__language-active {
