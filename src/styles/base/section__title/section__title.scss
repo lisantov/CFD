@@ -5,3 +5,9 @@
   @include desktop-text(h2);
   color: $black;
 }
+
+@media (max-width: 600px) {
+  .section__title {
+    @include mobile-text(h3);
+  }  
+}

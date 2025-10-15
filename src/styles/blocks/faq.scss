@@ -105,18 +105,11 @@
         @include desktop-text(h2);
         padding: 28px 32px;
         border: none;
+        border-radius: 16px;
         background: rgba($white, 0.3);
         color: $black;
         list-style-type: none;
         cursor: pointer;
-
-        &::marker {
-          display: none;
-        }
-
-        &::-webkit-details-marker {
-          display: none;
-        }
       }
 
       &-details {
@@ -129,6 +122,48 @@
           color: $grey;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .faq {
+    padding: 40px 8px;
+
+    &::before {
+      top: 0;
+      right: 0;
+      width: 300px;
+    }
+
+    &::after {
+      bottom: 0;
+      left: 0;
+      width: 300px;
+    }
+
+    &__title {
+      padding-left: 12px
+    }
+    
+    &__container-question-title {
+      @include mobile-text(h2);
+      padding: 16px;
+    }
+
+    &__container-question-mark {
+      width: 32px;
+      right: 16px;
+      top: 16px;
+
+      &::before,
+      &::after {
+        width: 16px;
+      }
+    }
+
+    &__container-question-details-text {
+      @include mobile-text(body);
     }
   }
 }

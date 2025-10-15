@@ -30,12 +30,40 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    text-decoration: none;
     gap: 8px;
     cursor: pointer;
 
     &-text {
       @include desktop-text(body);
       color: $white;
+
+      &-mobile {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 16px 20px;
+
+    &__info-title {
+      @include mobile-text(body);
+    }
+    
+    &__info-text {
+      @include mobile-text(table);
+    }
+
+    &__up-text{
+      @include mobile-text(body);
+      display: none;
+
+      &-mobile {
+        display: block;
+      }
     }
   }
 }

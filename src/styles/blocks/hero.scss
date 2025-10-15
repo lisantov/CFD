@@ -68,3 +68,49 @@
     color: $white;
   }
 }
+
+@media (max-width: 1200px) {
+  .hero {
+    align-items: center;
+
+    &__content {
+      gap: 25px;
+    }
+
+    &__image {
+      width: 100%;
+      aspect-ratio: 1;
+    }
+
+    &__hint {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .hero {
+    padding: 40px 20px 0;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    &__content {
+      padding: 40px 36px 0 56px;
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .hero__title {
+    @include mobile-text(h1);
+  }
+
+  .hero__content {
+    padding: 0;
+  }
+
+  .hero__form_label {
+    width: 100%;
+  }
+}

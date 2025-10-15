@@ -101,3 +101,33 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .feedback__container {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback__cover {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .feedback {
+    padding: 40px 20px;
+
+    &__content-description {
+      @include mobile-text(body);
+    }
+
+    &__content-form-submit {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    &__content-form-span {
+      width: 100%;
+    }
+  }
+}

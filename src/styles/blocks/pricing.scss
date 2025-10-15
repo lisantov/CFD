@@ -75,7 +75,6 @@
       display: flex;
       gap: 16px;
       align-items: flex-start;
-      justify-content: center;
 
       &-icon {
         flex-shrink: 0;
@@ -94,6 +93,54 @@
       &-text {
         @include desktop-text(body);
         color: $grey;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .pricing__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .pricing__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing {
+    padding: 40px 20px;
+
+    &__grid {
+      gap: 16px;
+    }
+
+    &__card {
+      &-header {
+        padding: 16px
+      }
+
+      &-title {
+        @include mobile-text(h3);
+      }
+
+      &-price {
+        @include mobile-text(h3);
+      }
+
+      &-content {
+        padding: 16px;
+      }
+
+      &-advantages {
+        gap: 16px;
+      }
+
+      &-advantage-text {
+        @include mobile-text(body);
       }
     }
   }

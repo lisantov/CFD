@@ -10,3 +10,9 @@
   background-color: transparent;
   outline: none;
 }
+
+@media (max-width: 600px) {
+  .form-input {
+    @include mobile-text(body);
+  }  
+}

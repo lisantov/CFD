@@ -1,15 +1,19 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sprint1</title>
 
   </head>
   <body>
-    <header class="header">
-        <p class="header__title">Инстаботы</p>
+    <header class="header" id="header">
+        <div class="header__sidebar-container">
+            <button class="header__sidebar-button">
+                <img src="./src/images/sidebar.svg" alt="Кнопка сайдбара">
+            </button>
+            <p class="header__title">Инстаботы</p>
+        </div>
         <div class="header__navigation">
             <nav class="header__links">
                 <a href="#" class="header__link">О компании</a>
@@ -27,6 +31,9 @@
                 <button class="header__login-button main-button main-button-primary">
                     Вход и регистрация
                 </button>
+                <button class="header__profile-button">
+                    <img src="./src/images/profile.svg" alt="Кнопка профиля">
+                </button>
             </div>
         </div>
     </header>
@@ -36,10 +43,12 @@
                 <div class="hero__intro">
                     <h1 class="hero__title">Высокий уровень вовлечения представителей</h1>
                     <form class="hero__form">
-                        <label for="email" class="hero__form_label form-label">
-                            <input id="email" class="hero__form_input form-input" type="email" placeholder="Введите свой e-mail" required>
+                        <div class="hero__form_label form-div">
+                            <label>
+                                <input class="hero__form_input form-input" type="email" placeholder="Введите свой e-mail" required>
+                            </label>
                             <button type="submit" class="hero__form_button main-button">Отправить</button>
-                        </label>
+                        </div>
                         <span class="hero__form_span form-span">
                             Нажимая на кнопку вы соглашаетесь на обработку <a class="hero__form_span-link form-span-link" href="#">персональных данных</a>
                         </span>
@@ -230,10 +239,13 @@
             <div class="reviews__container">
                 <div class="reviews__card">
                     <div class="reviews__card-header">
-                        <div class="reviews__card-header-avatar">
-                            <img src="./src/images/1.png" alt="Аватарка пользователя">
+                        <div class="reviews__card-header-user">
+                            <div class="reviews__card-header-avatar">
+                                <img src="./src/images/1.png" alt="Аватарка пользователя">
+                            </div>
+                            <div class="reviews__card-header-name">Кот Олежка</div>
                         </div>
-                        <div class="reviews__card-header-name">Кот Олежка</div>
+                        <p class="reviews__card-header-date">03.06.2021</p>
                     </div>
                     <div class="reviews__card-content">
                         <div class="reviews__card-content-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
@@ -248,10 +260,13 @@
                 </div>
                 <div class="reviews__card">
                     <div class="reviews__card-header">
-                        <div class="reviews__card-header-avatar">
-                            <img src="./src/images/2.png" alt="Аватарка пользователя">
+                        <div class="reviews__card-header-user">
+                            <div class="reviews__card-header-avatar">
+                                <img src="./src/images/2.png" alt="Аватарка пользователя">
+                            </div>
+                            <div class="reviews__card-header-name">Кот Семен</div>
                         </div>
-                        <div class="reviews__card-header-name">Кот Семен</div>
+                        <p class="reviews__card-header-date">03.06.2021</p>
                     </div>
                     <div class="reviews__card-content">
                         <div class="reviews__card-content-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
@@ -266,10 +281,13 @@
                 </div>
                 <div class="reviews__card">
                     <div class="reviews__card-header">
-                        <div class="reviews__card-header-avatar">
-                            <img src="./src/images/3.png" alt="Аватарка пользователя">
+                        <div class="reviews__card-header-user">
+                            <div class="reviews__card-header-avatar">
+                                <img src="./src/images/3.png" alt="Аватарка пользователя">
+                            </div>
+                            <div class="reviews__card-header-name">Кот Серёга</div>
                         </div>
-                        <div class="reviews__card-header-name">Кот Серёга</div>
+                        <p class="reviews__card-header-date">03.06.2021</p>
                     </div>
                     <div class="reviews__card-content">
                         <div class="reviews__card-content-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
@@ -284,10 +302,13 @@
                 </div>
                 <div class="reviews__card">
                     <div class="reviews__card-header">
-                        <div class="reviews__card-header-avatar">
-                            <img src="./src/images/4.png" alt="Аватарка пользователя">
+                        <div class="reviews__card-header-user">
+                            <div class="reviews__card-header-avatar">
+                                <img src="./src/images/4.png" alt="Аватарка пользователя">
+                            </div>
+                            <div class="reviews__card-header-name">Кот Иноккентий</div>
                         </div>
-                        <div class="reviews__card-header-name">Кот Иноккентий</div>
+                        <p class="reviews__card-header-date">03.06.2021</p>
                     </div>
                     <div class="reviews__card-content">
                         <div class="reviews__card-content-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
@@ -308,10 +329,12 @@
             <div class="promo__content">
                 <h2 class="promo__content-title">Получите самую выгодную цену на планете</h2>
                 <form class="promo__content-form">
-                    <label class="promo__content-form-label form-label">
-                        <input class="promo__content-form-input form-input" type="email" placeholder="Введите свой e-mail" required>
+                    <div class="pormo__content-form-div form-div">
+                        <label>
+                            <input class="promo__content-form-input form-input" type="email" placeholder="Введите свой e-mail" required>
+                        </label>
                         <button class="promo__content-form-button main-button main-button-primary">Отправить</button>
-                    </label>
+                    </div>
                     <span class="promo__content-form_span form-span">
                         Нажимая на кнопку вы соглашаетесь на обработку <a class="promo__content-form-span-link form-span-link" href="#">персональных данных</a>
                     </span>
@@ -321,7 +344,7 @@
         <section class="faq">
             <h2 class="faq__title section__title">Часто задаваемые вопросы</h2>
             <div class="faq__container">
-                <details class="faq__container-question" name="faq" open>
+                <details class="faq__container-question" open>
                     <summary class="faq__container-question-title">
                         Первый вопрос
                         <span class="faq__container-question-mark"></span>
@@ -332,7 +355,7 @@
                         </p>
                     </div>
                 </details>
-                <details class="faq__container-question" name="faq">
+                <details class="faq__container-question">
                     <summary class="faq__container-question-title">
                         Второй вопрос
                         <span class="faq__container-question-mark"></span>
@@ -343,7 +366,7 @@
                         </p>
                     </div>
                 </details>
-                <details class="faq__container-question" name="faq">
+                <details class="faq__container-question">
                     <summary class="faq__container-question-title">
                         Третий вопрос
                         <span class="faq__container-question-mark"></span>
@@ -354,7 +377,7 @@
                         </p>
                     </div>
                 </details>
-                <details class="faq__container-question" name="faq">
+                <details class="faq__container-question">
                     <summary class="faq__container-question-title">
                         Четвёртый вопрос
                         <span class="faq__container-question-mark"></span>
@@ -374,7 +397,7 @@
                     <p class="feedback__content-description">Поговорите с одним из наших сотрудников, чтобы узнать, сколько мы можем получить для вас целевой аудитории за месяц с минимальными усилиями с вашей стороны</p>
                     <form class="feedback__content-form">
                         <div class="feedback__content-form-inputs">
-                            <label class="feedback__container-form-label form-label">
+                            <label class="feedback__container-form-label form-div">
                                 <input
                                         type="email"
                                         class="feedback__content-form-input form-input"
@@ -382,7 +405,7 @@
                                         required
                                 >
                             </label>
-                            <label class="feedback__container-form-label form-label">
+                            <label class="feedback__container-form-label form-div">
                                 <input
                                         type="tel"
                                         class="feedback__content-form-input form-input"
@@ -390,7 +413,7 @@
                                         required
                                 >
                             </label>
-                            <label class="feedback__container-form-label form-label">
+                            <label class="feedback__container-form-label form-div">
                                 <input
                                         type="text"
                                         class="feedback__content-form-input form-input"
@@ -398,7 +421,7 @@
                                         required
                                 >
                             </label>
-                            <label class="feedback__container-form-label form-label">
+                            <label class="feedback__container-form-label form-div">
                                 <textarea
                                         rows="2"
                                         class="feedback__content-form-textarea form-input"
@@ -428,13 +451,13 @@
     <footer class="footer">
         <div class="footer__info">
             <h3 class="footer__info-title">Инстаботы</h3>
-            <p class="footer__info-text">© 2021 Copyright reserved</p>
-            <p class="footer__info-text">Instabots</p>
+            <p class="footer__info-text">© 2021 Copyright reserved <br> Instabots</p>
         </div>
-        <div class="footer__up">
+        <a href="#header" class="footer__up">
             <p class="footer__up-text">Вернуться наверх</p>
+            <p class="footer__up-text footer__up-text-mobile">Наверх</p>
             <img src="./src/images/arrow-up.svg" alt="Стрелочка вверх">
-        </div>
+        </a>
     </footer>
    <script type="module" src="./src/main.js"></script>
   </body>

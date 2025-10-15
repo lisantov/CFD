@@ -9,7 +9,12 @@
 }
 
 .form-span-link {
-  @include desktop-text(description);
   color: $blue;
   text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .form-span {
+    @include mobile-text(description);
+  }
 }
