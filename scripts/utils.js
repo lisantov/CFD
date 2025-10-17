@@ -4,15 +4,11 @@ export const isFileIsJson = (file) => {
         file.name.toLowerCase().endsWith('.json');
 }
 
-export const readFileAsText = (file, onStart = () => {}, onEnd = () => {}) => {
+export const readFileAsText = (file) => {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
 
         reader.readAsText(file);
-
-        reader.onloadstart = () => {
-            onStart();
-        }
 
         reader.onload = () => {
             resolve(reader.result);
@@ -20,10 +16,6 @@ export const readFileAsText = (file, onStart = () => {}, onEnd = () => {}) => {
 
         reader.onerror = () => {
             reject(new Error('Ошибка чтения файла'));
-        }
-
-        reader.onloadend = () => {
-            onEnd();
         }
     });
 }

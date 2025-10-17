@@ -12,12 +12,18 @@ const preloaderTemplate = document.getElementById('preloader-template');
 const preloader = new Preloader(preloaderTemplate.content);
 const submitButton = new SubmitButton();
 
+// ТЕКУЩИЙ ВАЛИДНЫЙ ФАЙЛ
 let currentFile;
 
+// СОЖЕРЖИМОЕ ФАЙЛА
+let contentsOfFile;
+
 const handleFileChange = (e) => {
-    if(isFileIsJson(e.target.files[0])) {
+    const file = e.target.files[0];
+    if(isFileIsJson(file)) {
         formErrorText.textContent = '';
         submitButton.setButtonActive();
+        currentFile = file;
     }
     else {
         formErrorText.textContent = 'Невалидный формат файла. Принимается только файлы с содержанием JSON';
@@ -25,4 +31,15 @@ const handleFileChange = (e) => {
     }
 }
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+    readFileAsText(currentFile)
+        .then((data) => JSON.parse(data))
+        .then((result) => contentsOfFile = result)
+        .catch((err) => {
+            formErrorText.textContent = err;
+        })
+}
+
 formFileInput.addEventListener('change', handleFileChange);
+form.addEventListener('submit', handleSubmit);
