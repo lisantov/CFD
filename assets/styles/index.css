@@ -1,5 +1,5 @@
-@import "preloader/preloader.css";
 @import "parser-form/parser-form.css";
+@import "loader/loader.css";
 
 * {
     margin: 0;

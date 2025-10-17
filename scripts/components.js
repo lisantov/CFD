@@ -1,17 +1,14 @@
-export class Preloader {
+export class Loader {
     element;
-    constructor(template) {
-        this.element = template.querySelector('.preloader');
+
+    constructor(template, root) {
+        this.element = template.querySelector('.loader');
+        root.appendChild(this.element);
     }
 
+    show = () => this.element.classList.add('loader--loading');
 
-    showPreloader = () => {
-        this.element.classList.add('loading');
-    }
-
-    hidePreloader = () => {
-        this.element.classList.remove('loading');
-    }
+    hide = () => this.element.classList.remove('loader--loading');
 }
 
 export class SubmitButton {
