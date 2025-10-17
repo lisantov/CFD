@@ -19,20 +19,37 @@
     color: #000;
 }
 
+.parser-form__error {
+    color: red;
+    font-size: 14px;
+}
+
 .parser-form__button {
     border-radius: 12px;
     padding: 8px 16px;
     border: 1px solid lightgray;
+    background-color: #fff;
     color: #000;
     cursor: pointer;
     transition: 0.25s ease-in-out;
 }
 
-.parser-form__button:hover {
+.parser-form__button--active:hover {
     transform: translateY(-3px);
     opacity: 0.8;
     border: 1px solid transparent;
     background-color: dodgerblue;
     box-shadow: 0 3px darkslateblue;
     color: #fff;
+}
+
+.parser-form__button--disabled {
+    border: 1px solid darkgray;
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.parser-form__button--disabled:hover {
+    border: 1px solid darkgray;
+    background-color: #b6b6b6;
 }
