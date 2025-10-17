@@ -1,1 +1,28 @@
 @import "preloader/preloader.css";
+@import "parser-form/parser-form.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    background-color: lightgray;
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 18px;
+    border-radius: 18px;
+    background-color: #fff;
+}
