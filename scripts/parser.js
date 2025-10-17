@@ -38,7 +38,9 @@ const handleSubmit = (e) => {
             loader.show();
             return JSON.parse(data);
         })
-        .then((result) => contentsOfFile = result)
+        .then((result) => {
+            contentsOfFile = result;
+        })
         .catch((err) => {
             formErrorText.textContent = err;
         })

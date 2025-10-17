@@ -12,7 +12,17 @@ body {
     justify-content: center;
     align-items: center;
     padding: 24px;
-    background-color: lightgray;
+    background-image: repeating-linear-gradient(
+            45deg,
+            rgba(119, 9, 85, 0.5) 5%,
+            rgba(11, 11, 88, 0.5) 10%
+        ),
+        repeating-linear-gradient(
+                -45deg,
+                rgba(119, 9, 85, 0.5) 5%,
+                rgba(11, 11, 88, 0.5) 10%
+        );
+    background-color: #1a3651;
     min-height: 100vh;
 }
 
@@ -22,7 +32,8 @@ body {
     gap: 20px;
     width: 100%;
     max-width: 1200px;
-    padding: 18px;
+    padding: 18px 18px 24px;
     border-radius: 18px;
-    background-color: #fff;
+    background-color: #161616;
+    border: 2px solid #282828;
 }
