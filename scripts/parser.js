@@ -1,10 +1,12 @@
-import { Loader, SubmitButton } from './components.js';
+import { Loader, SubmitButton, Input } from './components.js';
 import { isFileIsJson, readFileAsText } from './utils.js';
 
 // ЭЛЕМЕНТЫ
 const form = document.querySelector('.parser-form');
 const formErrorText = document.querySelector('.parser-form__error');
 const formFileInput = document.querySelector('.parser-form__input');
+
+const wrap = document.querySelector('.wrapper');
 
 const loaderTemplate = document.getElementById('loader-template');
 
@@ -40,6 +42,8 @@ const handleSubmit = (e) => {
         })
         .then((result) => {
             contentsOfFile = result;
+            form.classList.add('parser-form--hidden');
+            createForm(wrap);
         })
         .catch((err) => {
             formErrorText.textContent = err;
@@ -47,6 +51,19 @@ const handleSubmit = (e) => {
         .finally(() => {
             loader.hide();
         });
+}
+
+const createForm = (root) => {
+    const resultForm = document.createElement('form');
+    resultForm.classList.add('result-form');
+    if (contentsOfFile.name) resultForm.name = contentsOfFile.name;
+    if (contentsOfFile.fields) contentsOfFile.fields.forEach((fieldData) => {
+        const field = new Input(fieldData);
+        resultForm.appendChild(field.element);
+    });
+
+    console.log(resultForm);
+    root.appendChild(resultForm);
 }
 
 formFileInput.addEventListener('change', handleFileChange);

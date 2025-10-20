@@ -30,3 +30,31 @@ export class SubmitButton {
         this.element.classList.add('parser-form__button--disabled');
     }
 }
+
+export class InputField {
+    element;
+    constructor(attrs) {
+        this.element = document.createElement('input');
+        this.element.classList.add('result-form__input');
+        this.setAttributes(attrs);
+    }
+
+    setAttributes(attrs) {
+        const keys = Object.keys(attrs);
+
+        keys.forEach((key) => {
+            this.element.setAttribute(key, attrs[key]);
+        })
+    }
+}
+
+export class Input {
+    element;
+    constructor(fieldObject) {
+        this.element = document.createElement('label');
+        this.element.classList.add('result-form__label');
+        this.element.textContent = fieldObject.label;
+        const field = new InputField(fieldObject.input);
+        this.element.appendChild(field.element);
+    }
+}
