@@ -119,3 +119,56 @@ export class Button {
         })
     }
 }
+
+export class Reference {
+    element;
+    constructor(data) {
+        this.element = document.createElement('p');
+        this.element.classList.add('result-form__ref');
+
+        if (data['text without ref']) this.element.textContent = `${data["text without ref"]} `;
+        if (data.text) {
+            const link = document.createElement('a');
+            link.classList.add('result-form__link');
+            link.href = `#${data.ref}`;
+            link.textContent = data.text;
+            this.element.appendChild(link);
+        }
+    }
+}
+
+export class References {
+    element;
+    constructor(attrs) {
+        this.element = document.createElement('div');
+        this.element.classList.add('result-form__refs');
+
+        let i = 0;
+
+        while (i < attrs.length) {
+            if (attrs[i].input && i + 1 < attrs.length) {
+                const ref = this.createRefWithCheckbox(attrs[i], attrs[i + 1]);
+                this.element.appendChild(ref);
+                i += 2;
+            }
+            else {
+                const ref = new Reference(attrs[i]);
+                this.element.appendChild(ref.element);
+                i++;
+            }
+        }
+    }
+
+    createRefWithCheckbox(checkboxInfo, refInfo) {
+        const container = document.createElement('label');
+        container.classList.add('result-form__ref-container');
+
+        const checkboxElement = new InputField(checkboxInfo.input);
+        const refElement = new Reference(refInfo);
+
+        container.appendChild(checkboxElement.element);
+        container.appendChild(refElement.element);
+
+        return container;
+    }
+}

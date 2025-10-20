@@ -13,7 +13,7 @@
     align-items: flex-start;
     font-family: sans-serif;
     color: #f1f1f1;
-    gap: 5px;
+    gap: 3px;
 }
 
 .result-form__input {
@@ -24,6 +24,11 @@
     border: 1px solid #484848;
     background-color: #222;
     color: #f1f1f1;
+}
+
+.result-form__input[type="checkbox"] {
+    width: 25px;
+    aspect-ratio: 1;
 }
 
 .result-form__select {
@@ -54,7 +59,52 @@
     min-height: 40px;
 }
 
-
 .result-form__input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(100%);
+}
+
+.result-form__refs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.result-form__ref-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.result-form__ref {
+    font-family: sans-serif;
+    color: #f1f1f1;
+}
+
+.result-form__link {
+    font-family: sans-serif;
+    color: mediumvioletred;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.result-form__link:hover {
+    opacity: 0.8;
+}
+
+.result-form__button {
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background-color: #222;
+    border: 1px solid #f1f1f1;
+    color: #f1f1f1;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.result-form__button:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
 }
