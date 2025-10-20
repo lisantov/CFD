@@ -33,28 +33,49 @@ export class SubmitButton {
 
 export class InputField {
     element;
-    constructor(attrs) {
+    constructor(attrs, callback) {
         this.element = document.createElement('input');
         this.element.classList.add('result-form__input');
-        this.setAttributes(attrs);
+        this.setAttributes(attrs, callback);
     }
 
-    setAttributes(attrs) {
+    setAttributes(attrs, callback) {
         const keys = Object.keys(attrs);
 
         keys.forEach((key) => {
-            this.element.setAttribute(key, attrs[key]);
+            if(!Array.isArray(attrs[key])) {
+                this.element.setAttribute(key, attrs[key]);
+            }
+            else {
+                this.element.setAttribute('list', key);
+                callback({ [key]: attrs[key] });
+            }
         })
     }
 }
 
 export class Input {
     element;
+    datalistElement = null;
     constructor(fieldObject) {
         this.element = document.createElement('label');
         this.element.classList.add('result-form__label');
         this.element.textContent = fieldObject.label;
-        const field = new InputField(fieldObject.input);
+        const field = new InputField(fieldObject.input, (data) => this.createDatalist(data));
         this.element.appendChild(field.element);
+        if (this.datalistElement !== null) this.element.appendChild(this.datalistElement);
+    }
+
+    createDatalist(data) {
+        const keys = Object.keys(data);
+        const id = keys[0];
+        const datalist = document.createElement('datalist');
+        datalist.id = id;
+        data[id].forEach((value) => {
+           const option = document.createElement('option');
+           option.value = value;
+           datalist.appendChild(option);
+        });
+        this.datalistElement = datalist;
     }
 }

@@ -62,7 +62,6 @@ const createForm = (root) => {
         resultForm.appendChild(field.element);
     });
 
-    console.log(resultForm);
     root.appendChild(resultForm);
 }
 
