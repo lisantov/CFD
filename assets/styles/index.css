@@ -17,16 +17,20 @@ body {
     align-items: center;
     gap: 20px;
     padding: 24px;
-    background-image: repeating-linear-gradient(
-            45deg,
-            rgba(119, 9, 85, 0.5) 5%,
-            rgba(11, 11, 88, 0.5) 10%
-        ),
-        repeating-linear-gradient(
-                -45deg,
-                rgba(119, 9, 85, 0.5) 5%,
-                rgba(11, 11, 88, 0.5) 10%
-        );
+    background-image: url("../images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background-image: repeating-linear-gradient(*/
+    /*        45deg,*/
+    /*        rgba(119, 9, 85, 0.5) 5%,*/
+    /*        rgba(11, 11, 88, 0.5) 10%*/
+    /*    ),*/
+    /*    repeating-linear-gradient(*/
+    /*            -45deg,*/
+    /*            rgba(119, 9, 85, 0.5) 5%,*/
+    /*            rgba(11, 11, 88, 0.5) 10%*/
+    /*    );*/
     background-color: #1a3651;
     min-height: 100vh;
 }
