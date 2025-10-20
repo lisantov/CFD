@@ -19,3 +19,12 @@ export const readFileAsText = (file) => {
         }
     });
 }
+
+export const isThereArrayInObject = (obj) => {
+    let result = false;
+    const values = Object.values(obj);
+    values.forEach((val) => {
+        (Array.isArray(val) || result) ? result = true : result = false;
+    });
+    return result;
+}

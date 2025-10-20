@@ -25,6 +25,36 @@
     background-color: #222;
     color: #f1f1f1;
 }
+
+.result-form__select {
+    width: 100%;
+    padding: 6px 12px 8px;
+    min-height: 80px;
+    border-radius: 12px;
+    border: 1px solid #484848;
+    background-color: #222;
+    color: #f1f1f1;
+}
+
+.result-form__select::-webkit-scrollbar {
+    width: 8px;
+}
+
+.result-form__select::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 12px;
+}
+
+.result-form__select::-webkit-scrollbar-thumb {
+    background-color: mediumvioletred;
+    border-radius: 12px;
+}
+
+.result-form__select[type="color"] {
+    min-height: 40px;
+}
+
+
 .result-form__input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(100%);
 }

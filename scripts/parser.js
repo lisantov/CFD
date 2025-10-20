@@ -1,4 +1,4 @@
-import { Loader, SubmitButton, Input } from './components.js';
+import { Loader, SubmitButton, Input, Button } from './components.js';
 import { isFileIsJson, readFileAsText } from './utils.js';
 
 // ЭЛЕМЕНТЫ
@@ -61,6 +61,10 @@ const createForm = (root) => {
         const field = new Input(fieldData);
         resultForm.appendChild(field.element);
     });
+    if (contentsOfFile.buttons) contentsOfFile.buttons.forEach((buttonData) => {
+        const button = new Button(buttonData);
+        resultForm.appendChild(button.element);
+    })
 
     root.appendChild(resultForm);
 }

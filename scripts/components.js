@@ -1,3 +1,5 @@
+import { isThereArrayInObject } from "./utils.js";
+
 export class Loader {
     element;
 
@@ -33,13 +35,39 @@ export class SubmitButton {
 
 export class InputField {
     element;
-    constructor(attrs, callback) {
+    constructor(attrs) {
         this.element = document.createElement('input');
         this.element.classList.add('result-form__input');
-        this.setAttributes(attrs, callback);
+        this.setAttributes(attrs);
     }
 
-    setAttributes(attrs, callback) {
+    setAttributes(attrs) {
+        const keys = Object.keys(attrs);
+
+        keys.forEach((key) => {
+            this.element.setAttribute(key, attrs[key]);
+        })
+    }
+}
+
+export class SelectField {
+    element;
+    constructor(attrs) {
+        this.element = document.createElement('select');
+        this.element.classList.add('result-form__select');
+        this.setAttributes(attrs);
+
+        if(attrs.type === 'color') {
+            this.actualizeBackgroundColor();
+            this.element.addEventListener('change', () => this.actualizeBackgroundColor());
+        }
+    }
+
+    actualizeBackgroundColor() {
+        this.element.style.backgroundColor = this.element.options[this.element.selectedIndex].value
+    }
+
+    setAttributes(attrs) {
         const keys = Object.keys(attrs);
 
         keys.forEach((key) => {
@@ -47,8 +75,13 @@ export class InputField {
                 this.element.setAttribute(key, attrs[key]);
             }
             else {
-                this.element.setAttribute('list', key);
-                callback({ [key]: attrs[key] });
+                attrs[key].forEach((option) => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option;
+                    if (attrs.type === 'color') optionElement.style.backgroundColor = option;
+                    else optionElement.textContent = option;
+                    this.element.appendChild(optionElement);
+                })
             }
         })
     }
@@ -56,26 +89,33 @@ export class InputField {
 
 export class Input {
     element;
-    datalistElement = null;
     constructor(fieldObject) {
         this.element = document.createElement('label');
         this.element.classList.add('result-form__label');
         this.element.textContent = fieldObject.label;
-        const field = new InputField(fieldObject.input, (data) => this.createDatalist(data));
+
+        const field = (isThereArrayInObject(fieldObject.input) && fieldObject.input.type !== 'file') ?
+            new SelectField(fieldObject.input) :
+            new InputField(fieldObject.input);
+
         this.element.appendChild(field.element);
-        if (this.datalistElement !== null) this.element.appendChild(this.datalistElement);
+    }
+}
+
+export class Button {
+    element;
+    constructor(attrs) {
+        this.element = document.createElement('button');
+        this.element.classList.add('result-form__button');
+        this.setAttributes(attrs);
     }
 
-    createDatalist(data) {
-        const keys = Object.keys(data);
-        const id = keys[0];
-        const datalist = document.createElement('datalist');
-        datalist.id = id;
-        data[id].forEach((value) => {
-           const option = document.createElement('option');
-           option.value = value;
-           datalist.appendChild(option);
-        });
-        this.datalistElement = datalist;
+    setAttributes(attrs) {
+        const keys = Object.keys(attrs);
+
+        keys.forEach((key) => {
+            if(key === 'text') this.element.textContent = attrs[key];
+            else this.element.setAttribute(key, attrs[key]);
+        })
     }
 }
