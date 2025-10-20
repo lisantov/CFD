@@ -1,5 +1,4 @@
 .result-form {
-    width: max-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,7 +67,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 10px;
+    gap: 20px;
 }
 
 .result-form__ref-container {

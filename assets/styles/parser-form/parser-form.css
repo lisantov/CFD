@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    overflow: hidden;
     font-family: sans-serif;
 }
 
@@ -11,7 +10,8 @@
     display: none;
 }
 
-.parser-form__label {
+.parser-form__input-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,11 +21,50 @@
 }
 
 .parser-form__input {
-    padding: 6px 12px 8px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.parser-form__custom-input {
     border-radius: 12px;
-    border: 1px solid #484848;
-    background-color: #222;
-    color: #f1f1f1;
+    border: 2px dashed #9e1352;
+    background-color: #1d1d1d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.parser-form__custom-input:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px #770c3d;
+}
+
+.parser-form__custom-input--active {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px #770c3d;
+    background-color: #2a2a2a   ;
+}
+
+.parser-form__icon {
+    font-size: 2rem;
+}
+
+.parser-form__text {
+    font-weight: 600;
+    text-align: center;
+}
+
+.parser-form__hint {
+    color: #777;
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 
 .parser-form__error {

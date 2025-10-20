@@ -6,12 +6,34 @@ const form = document.querySelector('.parser-form');
 const formErrorText = document.querySelector('.parser-form__error');
 const formFileInput = document.querySelector('.parser-form__input');
 const resetButton = document.getElementById('reset-button');
-
+const customInput = document.querySelector('.parser-form__custom-input');
+const wrap = document.querySelector('.wrapper');
+const loaderTemplate = document.getElementById('loader-template');
 let currentResultForm;
 
-const wrap = document.querySelector('.wrapper');
+// СЛУШАТЕЛИ ДЛЯ КАСТОМНОГО ИНПУТА
+let counter = 0;
+customInput.addEventListener('dragover', (e) => {
+    e.preventDefault();
+});
 
-const loaderTemplate = document.getElementById('loader-template');
+customInput.addEventListener('dragenter', (e) => {
+    customInput.classList.add("parser-form__custom-input--active");
+    counter++;
+})
+
+customInput.addEventListener('dragleave', (e) => {
+    counter--;
+    if (counter === 0)
+        customInput.classList.remove("parser-form__custom-input--active");
+})
+
+customInput.addEventListener("drop", (e) => {
+    e.preventDefault();
+    customInput.classList.remove("parser-form__custom-input--active");
+    formFileInput.files = e.dataTransfer.files;
+    formFileInput.dispatchEvent(new Event('change'));
+})
 
 // КОМПОНЕНТЫ
 const loader = new Loader(loaderTemplate.content, form);
@@ -23,16 +45,19 @@ let currentFile;
 // СОЖЕРЖИМОЕ ФАЙЛА
 let contentsOfFile;
 
-const handleFileChange = (e) => {
-    const file = e.target.files[0];
+const handleFileChange = () => {
+    const file = formFileInput.files[0];
+    const title = document.getElementById('file-title');
     if(isFileIsJson(file)) {
         formErrorText.textContent = '';
         submitButton.setButtonActive();
         currentFile = file;
+        title.textContent = `Выбран: ${file.name}`;
     }
     else {
         formErrorText.textContent = 'Невалидный формат файла. Принимается только файлы с содержанием JSON';
         submitButton.setButtonDisabled();
+        title.textContent = `Выберите файл или перетащите его сюда`;
     }
 }
 

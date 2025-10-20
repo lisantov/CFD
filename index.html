@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JForm Parser</title>
     <link rel="stylesheet" href="assets/styles/index.css">
 </head>
@@ -9,9 +10,13 @@
     <h1 class="title">JForm Parser</h1>
     <div class="wrapper">
         <form class="parser-form">
-            <label class="parser-form__label">
-                Выберите ваш JSON для создания формы:
+            <label class="parser-form__input-wrapper">
                 <input class="parser-form__input" type="file" accept="application/json, text/javascript" required>
+                <div class="parser-form__custom-input">
+                    <h2 class="parser-form__icon">📁</h2>
+                    <p id="file-title" class="parser-form__text">Выберите файл или перетащите его сюда</p>
+                    <p class="parser-form__hint">JS, JSON</p>
+                </div>
             </label>
             <span class="parser-form__error"></span>
             <button disabled class="parser-form__button parser-form__button--disabled" type="submit">Создать форму</button>
