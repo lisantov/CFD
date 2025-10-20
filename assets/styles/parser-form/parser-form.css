@@ -1,11 +1,14 @@
 .parser-form {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
     overflow: hidden;
     font-family: sans-serif;
+}
+
+.parser-form--hidden {
+    display: none;
 }
 
 .parser-form__label {

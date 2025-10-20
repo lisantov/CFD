@@ -14,10 +14,11 @@
     display: none;
     position: absolute;
     inset: 0;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.4);
     justify-content: center;
     align-items: center;
     gap: 5px;
+    border-radius: 18px;
 }
 
 .loader--loading {
@@ -28,7 +29,7 @@
     width: 10px;
     aspect-ratio: 1;
     border-radius: 100%;
-    background-color: dodgerblue;
+    background-color: #c4118b;
 }
 
 .loader__circle:nth-child(1) {

@@ -1,0 +1,29 @@
+.result-form {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.result-form__label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: sans-serif;
+    color: #f1f1f1;
+    gap: 5px;
+}
+
+.result-form__input {
+    padding: 6px 12px 8px;
+    min-height: 38px;
+    border-radius: 12px;
+    border: 1px solid #484848;
+    background-color: #222;
+    color: #f1f1f1;
+}
+.result-form__input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+}
