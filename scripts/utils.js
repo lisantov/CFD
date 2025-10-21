@@ -37,7 +37,7 @@ export const isThereArrayInObject = (obj) => {
 export const maskValue = (value, mask) => {
     const rawMask = getRawNumbers(mask);
 
-    // Чуть чуть захардкодил, но я ненавижу делать маски
+    // Не люблю маски делать, тем более нативно
     const numbers = getRawNumbers(value)[0] === rawMask[0] ? getRawNumbers(value).slice(1) : getRawNumbers(value);
     let numberIndex = 0;
     let result = '';

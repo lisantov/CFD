@@ -38,6 +38,8 @@ export class InputField {
     constructor(attrs) {
         this.element = document.createElement('input');
         this.element.classList.add('result-form__input');
+
+        if(attrs.type === 'file') this.element.classList.add('result-form__input--hidden');
         this.setAttributes(attrs);
     }
 
@@ -118,6 +120,33 @@ export class Input {
         const field = (isThereArrayInObject(fieldObject.input) && fieldObject.input.type !== 'file') ?
             new SelectField(fieldObject.input) :
             new InputField(fieldObject.input);
+
+        if (fieldObject.input.type === 'file') {
+            this.element.textContent = '🔗 ' + fieldObject.label;
+            this.element.classList.add('result-form__custom-input');
+            let counter = 0;
+            this.element.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            this.element.addEventListener('dragenter', (e) => {
+                this.element.classList.add("result-form__custom-input--active");
+                counter++;
+            })
+
+            this.element.addEventListener('dragleave', (e) => {
+                counter--;
+                if (counter === 0)
+                    this.element.classList.remove("result-form__custom-input--active");
+            })
+
+            this.element.addEventListener("drop", (e) => {
+                e.preventDefault();
+                this.element.classList.remove("parser-form__custom-input--active");
+                field.element.files = e.dataTransfer.files;
+                field.element.dispatchEvent(new Event('change'));
+            })
+        }
 
         this.element.appendChild(field.element);
     }
