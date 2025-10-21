@@ -1,4 +1,4 @@
-import { isThereArrayInObject } from "./utils.js";
+import {areFilesValid, getRawNumbers, isThereArrayInObject, maskValue} from "./utils.js";
 
 export class Loader {
     element;
@@ -45,7 +45,28 @@ export class InputField {
         const keys = Object.keys(attrs);
 
         keys.forEach((key) => {
-            this.element.setAttribute(key, attrs[key]);
+            if (key === 'filetype') {
+                this.element.addEventListener('input', () => {
+                    if (!areFilesValid(this.element.files, attrs[key])) {
+                        this.element.value = '';
+                        alert('Неподходящий формат файла');
+                    }
+                })
+            }
+            if (key === 'mask') {
+                const mask = attrs[key];
+                this.element.type = 'text';
+                this.element.addEventListener('input', (e) => {
+                    this.element.value = maskValue(e.target.value, mask);
+                })
+                this.element.addEventListener('keydown', (e) =>{
+                    if(e.key === 'Backspace') {
+                        const rawValue = getRawNumbers(e.target.value);
+                        this.element.value = maskValue(rawValue.slice(0, rawValue.length - 1), mask);
+                    }
+                })
+            }
+            else this.element.setAttribute(key, attrs[key]);
         })
     }
 }

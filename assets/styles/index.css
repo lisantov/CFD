@@ -10,7 +10,8 @@
 }
 
 body {
-   min-width: 100%;
+    min-width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,18 +22,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    /*background-image: repeating-linear-gradient(*/
-    /*        45deg,*/
-    /*        rgba(119, 9, 85, 0.5) 5%,*/
-    /*        rgba(11, 11, 88, 0.5) 10%*/
-    /*    ),*/
-    /*    repeating-linear-gradient(*/
-    /*            -45deg,*/
-    /*            rgba(119, 9, 85, 0.5) 5%,*/
-    /*            rgba(11, 11, 88, 0.5) 10%*/
-    /*    );*/
     background-color: #1a3651;
-    min-height: 100vh;
 }
 
 .title {
@@ -52,5 +42,5 @@ body {
     padding: 18px 18px 24px;
     border-radius: 18px;
     background-color: #161616;
-    border: 2px solid #282828;
+    border: 2px solid #1b1b1b;
 }

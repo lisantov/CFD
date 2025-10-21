@@ -14,7 +14,6 @@
 
 .reset-button:hover {
     transform: translateY(-3px);
-    opacity: 0.8;
     border: 1px solid transparent;
     background-color: #9f1373;
     box-shadow: 0 3px #510A65;

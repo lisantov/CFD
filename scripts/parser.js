@@ -1,5 +1,5 @@
 import { Loader, SubmitButton, Input, Button, References } from './components.js';
-import { isFileIsJson, readFileAsText } from './utils.js';
+import { areFilesValid, readFileAsText } from './utils.js';
 
 // ЭЛЕМЕНТЫ
 const form = document.querySelector('.parser-form');
@@ -48,14 +48,19 @@ let contentsOfFile;
 const handleFileChange = () => {
     const file = formFileInput.files[0];
     const title = document.getElementById('file-title');
-    if(isFileIsJson(file)) {
+    if (!file) {
+        formErrorText.textContent = '';
+        submitButton.setButtonDisabled();
+        title.textContent = `Выберите файл или перетащите его сюда`;
+    }
+    else if(areFilesValid(formFileInput.files, ['.js', '.json'])) {
         formErrorText.textContent = '';
         submitButton.setButtonActive();
         currentFile = file;
         title.textContent = `Выбран: ${file.name}`;
     }
     else {
-        formErrorText.textContent = 'Невалидный формат файла. Принимается только файлы с содержанием JSON';
+        formErrorText.textContent = 'Невалидный формат файла. Принимаются только .js, .json';
         submitButton.setButtonDisabled();
         title.textContent = `Выберите файл или перетащите его сюда`;
     }
@@ -114,6 +119,7 @@ const createForm = (root) => {
 const handleReset = () => {
     form.classList.remove('parser-form--hidden');
     form.reset();
+    formFileInput.dispatchEvent(new Event('change'));
     resetButton.classList.add('reset-button--hidden');
     if (currentResultForm) currentResultForm.remove();
 }
