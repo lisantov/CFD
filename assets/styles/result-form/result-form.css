@@ -1,0 +1,201 @@
+.result-form {
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.result-form__label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: sans-serif;
+    color: #f1f1f1;
+    gap: 3px;
+}
+
+.result-form__input {
+    width: 100%;
+    padding: 6px 12px 8px;
+    min-height: 38px;
+    border-radius: 12px;
+    border: 1px solid #484848;
+    background-color: #222;
+    color: #f1f1f1;
+}
+
+.result-form__input[type="checkbox"] {
+    accent-color: #9e1352;
+    width: 25px;
+    aspect-ratio: 1;
+}
+
+
+.result-form__custom-input {
+    border-radius: 12px;
+    border: 2px dashed #9e1352;
+    background-color: #1d1d1d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 24px;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.result-form__custom-input:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px #770c3d;
+}
+
+.result-form__custom-input--active {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px #770c3d;
+    background-color: #2a2a2a   ;
+}
+
+.result-form__custom-text {
+    width: 100%;
+    padding: 6px 12px 8px;
+    min-height: 38px;
+    border-radius: 12px;
+    border: 1px solid #484848;
+    background-color: #222;
+    color: #f1f1f1;
+}
+
+.result-form__input-value {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    color: #f1f1f1;
+}
+
+.result-form__select-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.result-form__select-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.result-form__select {
+    font-family: sans-serif;
+    padding: 12px 24px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #f1f1f1;
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+ }
+
+.result-form__select:hover {
+    border: 1px solid #555;
+    background-color: #333;
+}
+
+.result-form__select--active {
+    border: 1px solid #770c3d;
+    box-shadow: 0 2px 10px #770c3d;
+    background-color: #931447;
+    transform: translateY(-2px);
+}
+
+.result-form__select--active:hover {
+    border: 1px solid #500728;
+    box-shadow: 0 2px 10px #470925;
+    background-color: #6a1034;
+    transform: translateY(-1px);
+}
+
+.result-form__select--checked {
+    border: 1px solid #ffffff;
+    box-shadow: 0 2px 10px #b1b1b1;
+    transform: translateY(-2px);
+}
+
+.result-form__select--checked:hover {
+    border: 1px solid #bfbfbf;
+    box-shadow: 0 2px 10px #7e7e7e;
+    transform: translateY(-2px);
+}
+
+.result-form__input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+}
+
+.result-form__refs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.result-form__ref-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.result-form__ref {
+    font-family: sans-serif;
+    color: #f1f1f1;
+}
+
+.result-form__link {
+    font-family: sans-serif;
+    color: mediumvioletred;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.result-form__link:hover {
+    opacity: 0.8;
+}
+
+.result-form__button {
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background-color: #222;
+    border: 1px solid #f1f1f1;
+    color: #f1f1f1;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.result-form__button:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .result-form {
+        min-width: auto;
+    }
+
+    .result-form__select-container {
+        grid-template-columns: 1fr;
+    }
+}
