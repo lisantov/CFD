@@ -1,0 +1,75 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.advantages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  padding: 80px 24px;
+  background-color: $white;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  &__card {
+    @include panel-on-white;
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background-color: $white;
+      padding: 12px 16px;
+    }
+
+    &-title {
+      @include desktop-text(h3);
+      color: $black;
+    }
+
+    &-content {
+      @include desktop-text(body);
+      color: $grey;
+      padding: 16px 24px 24px;
+      background-color: rgba($white, 0.5);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .advantages__container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .advantages {
+    padding: 40px 20px;
+    gap: 30px;
+
+    .advantages__card-icon {
+      width: 36px;
+    }
+
+    &__card-title {
+      @include mobile-text(h3);
+    }
+
+    &__card-content {
+      @include mobile-text(body);
+      padding: 12px 16px;
+    }
+  }
+}

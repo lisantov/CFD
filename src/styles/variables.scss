@@ -1,0 +1,149 @@
+// СТИЛЬ ТЕКСТОВ ДЛЯ ДЕСКТОПА
+$desktop-texts: (
+        h1: (
+                  font-size: 56px,
+                  font-weight: 500,
+                  font-family: ('Visuelt Pro', sans-serif),
+                  line-height: 1.25
+        ),
+
+        h2: (
+                  font-size: 36px,
+                  font-weight: 500,
+                  font-family: ('Visuelt Pro', sans-serif),
+                  line-height: 1.12
+        ),
+
+        h3: (
+                  font-size: 24px,
+                  font-weight: 500,
+                  font-family: ('Visuelt Pro', sans-serif),
+                  line-height: 1
+        ),
+
+        headline: (
+                font-size: 18px,
+                font-weight: 500,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+
+        body: (
+                font-size: 18px,
+                font-weight: 400,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+
+        span: (
+                font-size: 18px,
+                font-weight: 500,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+
+        description: (
+                font-size: 12px,
+                font-weight: 400,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+
+        table: (
+                font-size: 16px,
+                font-weight: 400,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+);
+
+// СТИЛЬ ТЕКСТОВ ДЛЯ МОБИЛКИ
+$mobile-texts: (
+        h1: (
+                font-size: 36px,
+                font-weight: 500,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.25
+        ),
+
+        h2: (
+                font-size: 26px,
+                font-weight: 500,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.25
+        ),
+
+        h3: (
+                font-size: 18px,
+                font-weight: 500,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.25
+        ),
+
+        headline: (
+                font-size: 14px,
+                font-weight: 500,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+
+        body: (
+                font-size: 14px,
+                font-weight: 400,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+
+        span: (
+                font-size: 14px,
+                font-weight: 500,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+
+        description: (
+                font-size: 10px,
+                font-weight: 400,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+
+        table: (
+                font-size: 14px,
+                font-weight: 400,
+                font-family: ('Visuelt Pro', sans-serif),
+                line-height: 1.35
+        ),
+);
+
+// ЦВЕТА
+$blue: #4754EB;
+$purple: #8633B0;
+$pink: #EB478B;
+$yellow: #FFDF80;
+$orange: #F47B25;
+$page: #F2F2F2;
+$white: #FFFFFF;
+$black: #1A1A1A;
+$grey: #808080;
+$light-grey: #D9D9D9;
+$hover: #505DEC;
+$inactive: #3C49DD;
+
+// ЭФФЕКТЫ
+$panels-on-white: (
+        box-shadow: 0 4px 20px rgba(#191919, 0.05),
+        backdrop-filter: blur(24px)
+);
+
+$panels-on-bg: (
+        box-shadow: -2px 4px 20px rgba(#191919, 0.025),
+        backdrop-filter: blur(240px)
+);
+
+// ЭФФЕКТЫ КНОПОК
+$hover: 0 24px 24px #505DEC40;
+$inactive: 0 8px 24px #3C49DD1A;
+
+// ОТСТУП СТРАНИЦЫ
+$page-padding: 24px;
