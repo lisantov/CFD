@@ -43,7 +43,6 @@
   &__cover {
     width: 100%;
     max-width: 630px;
-    aspect-ratio: 1;
   }
 
   &__content {
@@ -69,7 +68,7 @@
       @include desktop-text(body);
       color: $white;
 
-      &-active {
+      &--active {
         @include desktop-text(span);
         color: $blue;
       }
@@ -88,7 +87,7 @@
     gap: 24px;
     justify-content: center;
 
-    &-title-container {
+    &-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -105,11 +104,11 @@
       flex-direction: column;
       justify-content: center;
       gap: 16px;
+    }
 
-      &-text {
-        @include desktop-text(body);
-        color: $grey;
-      }
+    &-text {
+      @include desktop-text(body);
+      color: $grey;
     }
   }
 

@@ -45,7 +45,7 @@
     justify-content: center;
     gap: 16px;
 
-    &_label {
+    &-label {
       width: 80%;
       background-color: rgba($white, 0.5);
     }
@@ -79,7 +79,6 @@
 
     &__image {
       width: 100%;
-      aspect-ratio: 1;
     }
 
     &__hint {

@@ -31,28 +31,28 @@
       flex-direction: column;
       justify-content: center;
       gap: 40px;
+    }
 
-      &-inputs {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 16px;
-      }
+    &-inputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
 
-      &-textarea {
-        resize: none;
-      }
+    &-textarea {
+      resize: none;
+    }
 
-      &-button {
-        flex-shrink: 0;
-      }
+    &-button {
+      flex-shrink: 0;
+    }
 
-      &-submit {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 24px;
-      }
+    &-submit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
     }
   }
 
@@ -61,43 +61,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
 
-    &-bg {
-      position: relative;
-      width: 515px;
+  &-bg {
+    position: relative;
+    width: 515px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
       aspect-ratio: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 100%;
-      overflow: hidden;
-
-      &::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        aspect-ratio: 1;
-        background-image: linear-gradient(to top, rgba($white, 0), rgba($white, 1));
-      }
-
-      &-image {
-        filter: blur(160px);
-      }
+      background-image: linear-gradient(to top, rgba($white, 0), rgba($white, 1));
     }
 
-    &-fg {
-      position: absolute;
-      bottom: 1px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
+    &-image {
+      filter: blur(160px);
+    }
+  }
 
-      &-image {
-        border-radius: 0 0 100% 100%;
-        overflow: hidden;
-      }
+  &-fg {
+    position: absolute;
+    bottom: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    &-image {
+      border-radius: 0 0 100% 100%;
+      overflow: hidden;
     }
   }
 }
@@ -120,13 +120,13 @@
       @include mobile-text(body);
     }
 
-    &__content-form-submit {
+    &__content-submit {
       flex-direction: column;
       align-items: flex-start;
       gap: 16px;
     }
 
-    &__content-form-span {
+    &__content-span {
       width: 100%;
     }
   }

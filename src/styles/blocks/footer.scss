@@ -33,11 +33,13 @@
     &-title {
       @include desktop-text(body);
       color: $white;
+      text-decoration: none;
     }
 
     &-text {
       @include desktop-text(table);
       color: $light-grey;
+      max-width: 200px;
     }
   }
 

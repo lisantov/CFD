@@ -51,10 +51,10 @@
       &-title {
         @include mobile-text(h1);
       }
+    }
 
-      &-form_span {
-        width: 100%;
-      }
+    &__form-span {
+      width: 100%;
     }
   }
 }

@@ -47,7 +47,7 @@
       @include desktop-text(h3);
       color: $grey;
 
-      &-accent {
+      &--accent {
         color: $blue;
       }
     }
@@ -75,25 +75,25 @@
       display: flex;
       gap: 16px;
       align-items: flex-start;
+    }
 
-      &-icon {
-        flex-shrink: 0;
-        width: 32px;
-        aspect-ratio: 1;
-        background-image: url("../../images/cross.svg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+    &-icon {
+      flex-shrink: 0;
+      width: 32px;
+      aspect-ratio: 1;
+      background-image: url("../../images/svg/cross.svg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
 
-        &-active {
-          background-image: url("../../images/checkmark.svg");
-        }
+      &--active {
+        background-image: url("../../images/svg/checkmark.svg");
       }
+    }
 
-      &-text {
-        @include desktop-text(body);
-        color: $grey;
-      }
+    &-text {
+      @include desktop-text(body);
+      color: $grey;
     }
   }
 }
