@@ -2,6 +2,7 @@
 @import "parser-form/parser-form.css";
 @import "result-form/result-form.css";
 @import "reset-button/reset-button.css";
+@import "hidden-element/hidden-element.css";
 
 * {
     margin: 0;
@@ -29,6 +30,7 @@ body {
     font-family: sans-serif;
     color: #f1f1f1;
     font-size: 3rem;
+    text-align: center;
 }
 
 .wrapper {

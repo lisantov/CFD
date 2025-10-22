@@ -27,13 +27,6 @@
     color: #f1f1f1;
 }
 
-.result-form__input--hidden {
-    position: absolute;
-    width: 0;
-    height: 0;
-    opacity: 0;
-}
-
 .result-form__input[type="checkbox"] {
     accent-color: #9e1352;
     width: 25px;
@@ -84,32 +77,67 @@
     color: #f1f1f1;
 }
 
-.result-form__select {
+.result-form__select-wrapper {
     width: 100%;
-    padding: 6px 12px 8px;
-    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.result-form__select-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.result-form__select {
+    font-family: sans-serif;
+    padding: 12px 24px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
     border-radius: 12px;
-    border: 1px solid #484848;
+    border: 1px solid #444;
     background-color: #222;
     color: #f1f1f1;
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+ }
+
+.result-form__select:hover {
+    border: 1px solid #555;
+    background-color: #333;
 }
 
-.result-form__select::-webkit-scrollbar {
-    width: 8px;
+.result-form__select--active {
+    border: 1px solid #770c3d;
+    box-shadow: 0 2px 10px #770c3d;
+    background-color: #931447;
+    transform: translateY(-2px);
 }
 
-.result-form__select::-webkit-scrollbar-track {
-    background: #222;
-    border-radius: 12px;
+.result-form__select--active:hover {
+    border: 1px solid #500728;
+    box-shadow: 0 2px 10px #470925;
+    background-color: #6a1034;
+    transform: translateY(-1px);
 }
 
-.result-form__select::-webkit-scrollbar-thumb {
-    background-color: mediumvioletred;
-    border-radius: 12px;
+.result-form__select--checked {
+    border: 1px solid #ffffff;
+    box-shadow: 0 2px 10px #b1b1b1;
+    transform: translateY(-2px);
 }
 
-.result-form__select[type="color"] {
-    min-height: 40px;
+.result-form__select--checked:hover {
+    border: 1px solid #bfbfbf;
+    box-shadow: 0 2px 10px #7e7e7e;
+    transform: translateY(-2px);
 }
 
 .result-form__input[type="date"]::-webkit-calendar-picker-indicator {
@@ -165,5 +193,9 @@
 @media (max-width: 600px) {
     .result-form {
         min-width: auto;
+    }
+
+    .result-form__select-container {
+        grid-template-columns: 1fr;
     }
 }
