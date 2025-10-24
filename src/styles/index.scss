@@ -23,8 +23,19 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: $page;
   padding: $page-padding;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1920px;
 }
 
 .main {

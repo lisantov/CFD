@@ -50,29 +50,31 @@
     justify-content: center;
     border: 1px solid $white;
     border-radius: 16px;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
 
-    &:nth-child(2) {
-      width: 50%;
+    &--top {
       position: absolute;
-      left: 25%;
-      top: -15%;
+      width: 50%;
+      transform: translateX(50%) translateY(-31%);
       z-index: 4;
+      transition: 0.25s ease-in-out;
     }
 
-    &:nth-child(3) {
-      width: 50%;
+    &--right {
       position: absolute;
-      left: 13%;
-      bottom: 2%;
+      width: 50%;
+      transform: translateX(100%) translateY(50%);
       z-index: 2;
+      transition: 0.25s ease-in-out;
     }
 
-    &:nth-child(4) {
-      width: 50%;
+    &--bottom {
       position: absolute;
-      right: 0;
-      bottom: 29%;
+      width: 50%;
+      transform: translateX(25%) translateY(108%);
       z-index: 2;
+      transition: 0.25s ease-in-out;
     }
 
     &-header {
@@ -116,13 +118,17 @@
       flex-direction: column;
       justify-content: center;
       gap: 16px;
-      background-color: rgba($white, 0.8);
+      background-color: rgba($white, 0.6);
       border-radius: 0 0 16px 16px;
       }
 
     &-text {
       @include desktop-text(body);
       color: $grey;
+
+      &--success {
+        text-align: center;
+      }
     }
 
     &-stars {

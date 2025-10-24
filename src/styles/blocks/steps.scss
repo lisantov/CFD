@@ -35,6 +35,9 @@
   }
 
   &__content-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
@@ -46,10 +49,24 @@
   }
 
   &__content {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 70px;
+    overflow: hidden;
+
+    &-slider {
+      position: relative;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 100%);
+      transition: 0.5s ease-in-out;
+    }
+
+    &-tab {
+      width: 100%;
+    }
   }
 
   &__text-container {
@@ -124,6 +141,7 @@
 
   &__button {
     width: max-content;
+    height: max-content;
   }
 }
 
@@ -137,7 +155,7 @@
     }
 
     &__content-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: 100%;
       justify-items: center;
     }
   }
@@ -147,7 +165,7 @@
   .steps {
     padding: 40px 20px;
 
-    &__content {
+    &__content-tab {
       gap: 40px;
     }
 

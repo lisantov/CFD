@@ -15,453 +15,506 @@
             <rect x="1" y="1" width="22" height="30" rx="11" stroke-width="2"/>
             <path d="M12 13L12 7" stroke-width="2" stroke-linecap="round"/>
         </symbol>
+        <symbol width="15" height="18" viewBox="0 0 15 18" id="arrow-up">
+            <path d="M6.36395 17C6.36395 17.5523 6.81167 18 7.36395 18C7.91624 18 8.36395 17.5523 8.36395 17L6.36395 17ZM8.07106 0.292892C7.68054 -0.0976314 7.04737 -0.0976315 6.65685 0.292892L0.292885 6.65685C-0.0976391 7.04738 -0.0976392 7.68054 0.292885 8.07107C0.68341 8.46159 1.31657 8.46159 1.7071 8.07107L7.36395 2.41421L13.0208 8.07107C13.4113 8.46159 14.0445 8.46159 14.435 8.07107C14.8255 7.68054 14.8255 7.04738 14.435 6.65685L8.07106 0.292892ZM8.36395 17L8.36395 1L6.36395 1L6.36395 17L8.36395 17Z"/>
+        </symbol>
     </defs>
   </svg>
 
-  <header class="header" id="header">
-        <div class="header__sidebar-container">
-            <button class="header__sidebar-button">
-                <img src="src/images/svg/header/sidebar.svg" alt="Кнопка сайдбара">
-            </button>
-            <a class="header__logo" href="#">
-                <h1 class="header__title">Инстаботы</h1>
-            </a>
-        </div>
-        <div class="header__navigation">
-            <nav class="header__links">
-                <a href="#steps" class="header__link">О компании</a>
-                <a href="#pricing" class="header__link">Тарифы</a>
-                <a href="#reviews" class="header__link">Отзывы</a>
-                <a href="#faq" class="header__link">Q&A</a>
-                <a href="#feedback" class="header__link">Обратная связь</a>
-            </nav>
-            <div class="header__controls">
-                <div class="header__language-button">
-                    <button class="header__language header__language--active">Ru</button>
-                    <span class="header__separator">/</span>
-                    <button class="header__language">En</button>
-                </div>
-                <button class="header__login-button main-button main-button-primary">
-                    Вход и регистрация
+  <div class="wrapper">
+      <header class="header" id="header">
+            <div class="header__sidebar-container">
+                <button class="header__sidebar-button">
+                    <img src="src/images/svg/header/sidebar.svg" alt="Кнопка сайдбара">
                 </button>
-                <button class="header__profile-button">
-                    <img src="src/images/svg/header/profile.svg" alt="Кнопка профиля">
-                </button>
+                <a class="header__logo" href="#">
+                    <h1 class="header__title">Инстаботы</h1>
+                </a>
             </div>
-        </div>
-    </header>
-    <main class="main">
-        <section class="hero" id="hero">
-            <div class="hero__content">
-                <div class="hero__intro">
-                    <h2 class="hero__title">Высокий уровень вовлечения представителей</h2>
-                    <form class="hero__form">
-                        <label class="hero__form-label form-label">
-                            <input class="hero__form-input form-input" type="email" placeholder="Введите свой e-mail" required>
-                            <button type="submit" class="hero__form-button main-button">Отправить</button>
+            <div class="header__navigation">
+                <nav class="header__links">
+                    <a href="#steps" class="header__link">О компании</a>
+                    <a href="#pricing" class="header__link">Тарифы</a>
+                    <a href="#reviews" class="header__link">Отзывы</a>
+                    <a href="#faq" class="header__link">Q&A</a>
+                    <a href="#feedback" class="header__link">Обратная связь</a>
+                </nav>
+                <div class="header__controls">
+                    <div class="header__language-button">
+                        <button class="header__language header__language--active">Ru</button>
+                        <span class="header__separator">/</span>
+                        <button class="header__language">En</button>
+                    </div>
+                    <button class="header__login-button main-button main-button-primary">
+                        Вход и регистрация
+                    </button>
+                    <button class="header__profile-button">
+                        <img src="src/images/svg/header/profile.svg" alt="Кнопка профиля">
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="hero" id="hero">
+                <div class="hero__content">
+                    <div class="hero__intro">
+                        <h2 class="hero__title">Высокий уровень вовлечения представителей</h2>
+                        <form class="hero__form">
+                            <label class="hero__form-label form-label">
+                                <input class="hero__form-input form-input" type="email" placeholder="Введите свой e-mail" required>
+                                <button type="submit" class="hero__form-button main-button">Отправить</button>
+                            </label>
+                            <span class="hero__form-span form-span">
+                                Нажимая на кнопку вы соглашаетесь на обработку <a class="hero__form--link form-span--link" href="#">персональных данных</a>
+                            </span>
+                        </form>
+                    </div>
+                    <div class="hero__hint">
+                        <svg class='hero__icon'><use class='hero__icon-svg' xlink:href='#mouse-icon'></use></svg>
+                        <span class="hero__span">Листайте дальше</span>
+                    </div>
+                </div>
+                <img src="src/images/blocks/hero/cover.png" alt="Приветственная картинка" class="hero__image">
+            </section>
+            <section class="advantages" id="advantages">
+                <h2 class="advantages__title section__title">Наши преимущества</h2>
+                <div class="advantages__container">
+                    <article class="advantages__card">
+                        <div class="advantages__card-header">
+                            <div class="advantages__card-icon nerd"></div>
+                            <h3 class="advantages__card-title">Легко и просто</h3>
+                        </div>
+                        <p class="advantages__card-content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.
+                        </p>
+                    </article>
+                    <article class="advantages__card">
+                        <div class="advantages__card-header">
+                            <div class="advantages__card-icon wink"></div>
+                            <h3 class="advantages__card-title">Быстро и доступно</h3>
+                        </div>
+                        <p class="advantages__card-content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.
+                        </p>
+                    </article>
+                    <article class="advantages__card">
+                        <div class="advantages__card-header">
+                            <div class="advantages__card-icon cool"></div>
+                            <h3 class="advantages__card-title">А главное, качественно</h3>
+                        </div>
+                        <p class="advantages__card-content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.
+                        </p>
+                    </article>
+                </div>
+            </section>
+            <section class="steps" id="steps">
+                <h2 class="steps__title section__title">Как мы работаем</h2>
+                <div class="steps__content-container">
+                    <img src="src/images/blocks/steps/steps.png" alt="Рука с телефоном" class="steps__cover">
+                    <div class="steps__content">
+                        <div class="steps__content-slider">
+                            <div class="steps__content-tab">
+                                <div class="steps__text-container">
+                                    <div class="steps__header">
+                                        <p class="steps__header-text steps__header-text--active">Lorem ipsum</p>
+                                        <div class="steps__header-separator"></div>
+                                        <p class="steps__header-text">Lorem ipsum</p>
+                                        <div class="steps__header-separator"></div>
+                                        <p class="steps__header-text">Lorem ipsum</p>
+                                    </div>
+                                    <div class="steps__body">
+                                        <div class="steps__body-container">
+                                            <h2 class="steps__body-title section__title">Lorem ipsum dolor sit amet, consectetur.</h2>
+                                            <p class="steps__body-slogan">Semper sollicitudin ut cursus nunc eu ultricies.</p>
+                                        </div>
+                                        <div class="steps__body-content">
+                                            <p class="steps__body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere lorem nulla tincidunt egestas nibh. Non orci, et massa sed vulputate proin. Eu euismod diam, arcu sit vitae nam. Tristique orci, ornare sit vel amet.</p>
+                                            <p class="steps__body-text">Ut elit dui iaculis malesuada in auctor dui. Sollicitudin varius vitae ut vitae lacus, sem dolor fermentum enim. Orci orci interdum pretium adipiscing augue sit nisl adipiscing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="steps__content-tab">
+                                <div class="steps__text-container">
+                                    <div class="steps__header">
+                                        <p class="steps__header-text">Lorem ipsum</p>
+                                        <div class="steps__header-separator"></div>
+                                        <p class="steps__header-text steps__header-text--active">Lorem ipsum</p>
+                                        <div class="steps__header-separator"></div>
+                                        <p class="steps__header-text">Lorem ipsum</p>
+                                    </div>
+                                    <div class="steps__body">
+                                        <div class="steps__body-container">
+                                            <h2 class="steps__body-title section__title">Lorem ipsum dolor sit amet, consectetur.</h2>
+                                            <p class="steps__body-slogan">Semper sollicitudin ut cursus nunc eu ultricies.</p>
+                                        </div>
+                                        <div class="steps__body-content">
+                                            <p class="steps__body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere lorem nulla tincidunt egestas nibh. Non orci, et massa sed vulputate proin. Eu euismod diam, arcu sit vitae nam. Tristique orci, ornare sit vel amet.</p>
+                                            <p class="steps__body-text">Ut elit dui iaculis malesuada in auctor dui. Sollicitudin varius vitae ut vitae lacus, sem dolor fermentum enim. Orci orci interdum pretium adipiscing augue sit nisl adipiscing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="steps__content-tab">
+                                <div class="steps__text-container">
+                                    <div class="steps__header">
+                                        <p class="steps__header-text">Lorem ipsum</p>
+                                        <div class="steps__header-separator"></div>
+                                        <p class="steps__header-text">Lorem ipsum</p>
+                                        <div class="steps__header-separator"></div>
+                                        <p class="steps__header-text steps__header-text--active">Lorem ipsum</p>
+                                    </div>
+                                    <div class="steps__body">
+                                        <div class="steps__body-container">
+                                            <h2 class="steps__body-title section__title">Lorem ipsum dolor sit amet, consectetur.</h2>
+                                            <p class="steps__body-slogan">Semper sollicitudin ut cursus nunc eu ultricies.</p>
+                                        </div>
+                                        <div class="steps__body-content">
+                                            <p class="steps__body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere lorem nulla tincidunt egestas nibh. Non orci, et massa sed vulputate proin. Eu euismod diam, arcu sit vitae nam. Tristique orci, ornare sit vel amet.</p>
+                                            <p class="steps__body-text">Ut elit dui iaculis malesuada in auctor dui. Sollicitudin varius vitae ut vitae lacus, sem dolor fermentum enim. Orci orci interdum pretium adipiscing augue sit nisl adipiscing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="steps__button main-button main-button-primary">Забронировать звонок</button>
+                    </div>
+                </div>
+            </section>
+            <section class="pricing" id="pricing">
+                <h2 class="pricing__title section__title">Наши тарифы</h2>
+                <div class="pricing__grid">
+                    <article class="pricing__card">
+                        <div class="pricing__card-header">
+                            <h3 class="pricing__card-title">Эконом</h3>
+                            <p class="pricing__card-price"><span class="pricing__card-price--accent">2 990руб</span>/месяц</p>
+                        </div>
+                        <div class="pricing__card-content">
+                            <div class="pricing__card-advantages">
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
+                                </div>
+                            </div>
+                            <button class="pricing__card-button main-button">Узнать подробнее</button>
+                        </div>
+                    </article>
+                    <article class="pricing__card">
+                        <div class="pricing__card-header">
+                            <h3 class="pricing__card-title">Стандарт</h3>
+                            <p class="pricing__card-price"><span class="pricing__card-price--accent">4 990руб</span>/месяц</p>
+                        </div>
+                        <div class="pricing__card-content">
+                            <div class="pricing__card-advantages">
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
+                                </div>
+                            </div>
+                            <button class="pricing__card-button main-button">Узнать подробнее</button>
+                        </div>
+                    </article>
+                    <article class="pricing__card">
+                        <div class="pricing__card-header">
+                            <h3 class="pricing__card-title">Экстра</h3>
+                            <p class="pricing__card-price"><span class="pricing__card-price--accent">8 990руб</span>/месяц</p>
+                        </div>
+                        <div class="pricing__card-content">
+                            <div class="pricing__card-advantages">
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
+                                </div>
+                            </div>
+                            <button class="pricing__card-button main-button">Узнать подробнее</button>
+                        </div>
+                    </article>
+                    <article class="pricing__card">
+                        <div class="pricing__card-header">
+                            <h3 class="pricing__card-title">Премиальный</h3>
+                            <p class="pricing__card-price"><span class="pricing__card-price--accent">12 990руб</span>/месяц</p>
+                        </div>
+                        <div class="pricing__card-content">
+                            <div class="pricing__card-advantages">
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active-icon-active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="pricing__card-advantage">
+                                    <div class="pricing__card-icon pricing__card-icon--active"></div>
+                                    <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
+                                </div>
+                            </div>
+                            <button class="pricing__card-button main-button">Узнать подробнее</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section class="reviews" id="reviews">
+                <h2 class="reviews__title section__title">Отзывы</h2>
+                <div class="reviews__container">
+                    <article class="reviews__card">
+                        <div class="reviews__card-header">
+                            <div class="reviews__card-user">
+                                <div class="reviews__card-avatar">
+                                    <img src="src/images/blocks/reviews/cat1.png" alt="Аватарка пользователя">
+                                </div>
+                                <div class="reviews__card-name">Кот Олежка</div>
+                            </div>
+                            <p class="reviews__card-date">03.06.2021</p>
+                        </div>
+                        <div class="reviews__card-content">
+                            <div class="reviews__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
+                            <div class="reviews__card-stars">
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="reviews__card reviews__card--top">
+                        <div class="reviews__card-header">
+                            <div class="reviews__card-user">
+                                <div class="reviews__card-avatar">
+                                    <img src="src/images/blocks/reviews/cat2.png" alt="Аватарка пользователя">
+                                </div>
+                                <div class="reviews__card-name">Кот Семен</div>
+                            </div>
+                            <p class="reviews__card-date">03.06.2021</p>
+                        </div>
+                        <div class="reviews__card-content">
+                            <div class="reviews__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
+                            <div class="reviews__card-stars">
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="reviews__card reviews__card--right">
+                        <div class="reviews__card-header">
+                            <div class="reviews__card-user">
+                                <div class="reviews__card-avatar">
+                                    <img src="src/images/blocks/reviews/cat4.png" alt="Аватарка пользователя">
+                                </div>
+                                <div class="reviews__card-name">Кот Иноккентий</div>
+                            </div>
+                            <p class="reviews__card-date">03.06.2021</p>
+                        </div>
+                        <div class="reviews__card-content">
+                            <div class="reviews__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
+                            <div class="reviews__card-stars">
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star"></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="reviews__card reviews__card--bottom">
+                        <div class="reviews__card-header">
+                            <div class="reviews__card-user">
+                                <div class="reviews__card-avatar">
+                                    <img src="src/images/blocks/reviews/cat3.png" alt="Аватарка пользователя">
+                                </div>
+                                <div class="reviews__card-name">Кот Серёга</div>
+                            </div>
+                            <p class="reviews__card-date">03.06.2021</p>
+                        </div>
+                        <div class="reviews__card-content">
+                            <div class="reviews__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
+                            <div class="reviews__card-stars">
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star reviews__card-star--active"></div>
+                                <div class="reviews__card-star"></div>
+                                <div class="reviews__card-star"></div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <button class="reviews__button main-button">Структурировать котиков</button>
+            </section>
+            <section class="promo" id="promo">
+                <img src="src/images/blocks/promo/promo.png" alt="Завлекающая продающая картинка" class="promo__cover">
+                <div class="promo__content">
+                    <h2 class="promo__content-title">Получите самую выгодную цену на планете</h2>
+                    <form class="promo__content-form">
+                        <label class="promo__form-div form-label">
+                            <input class="promo__form-input form-input" type="email" placeholder="Введите свой e-mail" required>
+                            <button class="promo__form-button main-button main-button-primary">Отправить</button>
                         </label>
-                        <span class="hero__form-span form-span">
-                            Нажимая на кнопку вы соглашаетесь на обработку <a class="hero__form--link form-span--link" href="#">персональных данных</a>
+                        <span class="promo__form-span form-span">
+                            Нажимая на кнопку вы соглашаетесь на обработку <a class="promo__form-span--link form-span--link" href="#">персональных данных</a>
                         </span>
                     </form>
                 </div>
-                <div class="hero__hint">
-                    <svg class='hero__icon'><use class='hero__icon-svg' xlink:href='#mouse-icon'></use></svg>
-                    <span class="hero__span">Листайте дальше</span>
+            </section>
+            <section class="faq" id="faq">
+                <h2 class="faq__title section__title">Часто задаваемые вопросы</h2>
+                <div class="faq__container">
+                    <details class="faq__question" open>
+                        <summary class="faq__question-title">
+                            Первый вопрос
+                            <span class="faq__question-mark"></span>
+                        </summary>
+                        <div class="faq__question-details">
+                            <p class="faq__question-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa mi aliquet eu interdum eu pellentesque amet, fermentum hendrerit. Nunc hendrerit nec risus adipiscing lacus, lobortis lectus cursus nunc. Id pellentesque dapibus eu tincidunt dui id tortor, porttitor. Tincidunt nunc praesent euismod in nisl, tellus suspendisse morbi nam. Egestas eget erat malesuada gravida. Et enim integer quam orci, cursus tincidunt mauris, sit.
+                            </p>
+                        </div>
+                    </details>
+                    <details class="faq__question">
+                        <summary class="faq__question-title">
+                            Второй вопрос
+                            <span class="faq__question-mark"></span>
+                        </summary>
+                        <div class="faq__question-details">
+                            <p class="faq__question-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa mi aliquet eu interdum eu pellentesque amet, fermentum hendrerit. Nunc hendrerit nec risus adipiscing lacus, lobortis lectus cursus nunc. Id pellentesque dapibus eu tincidunt dui id tortor, porttitor. Tincidunt nunc praesent euismod in nisl, tellus suspendisse morbi nam. Egestas eget erat malesuada gravida. Et enim integer quam orci, cursus tincidunt mauris, sit.
+                            </p>
+                        </div>
+                    </details>
+                    <details class="faq__question">
+                        <summary class="faq__question-title">
+                            Третий вопрос
+                            <span class="faq__question-mark"></span>
+                        </summary>
+                        <div class="faq__question-details">
+                            <p class="faq__question-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa mi aliquet eu interdum eu pellentesque amet, fermentum hendrerit. Nunc hendrerit nec risus adipiscing lacus, lobortis lectus cursus nunc. Id pellentesque dapibus eu tincidunt dui id tortor, porttitor. Tincidunt nunc praesent euismod in nisl, tellus suspendisse morbi nam. Egestas eget erat malesuada gravida. Et enim integer quam orci, cursus tincidunt mauris, sit.
+                            </p>
+                        </div>
+                    </details>
+                    <details class="faq__question">
+                        <summary class="faq__question-title">
+                            Четвёртый вопрос
+                            <span class="faq__question-mark"></span>
+                        </summary>
+                        <div class="faq__question-details">
+                            <p class="faq__question-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa mi aliquet eu interdum eu pellentesque amet, fermentum hendrerit. Nunc hendrerit nec risus adipiscing lacus, lobortis lectus cursus nunc. Id pellentesque dapibus eu tincidunt dui id tortor, porttitor. Tincidunt nunc praesent euismod in nisl, tellus suspendisse morbi nam. Egestas eget erat malesuada gravida. Et enim integer quam orci, cursus tincidunt mauris, sit.
+                            </p>
+                        </div>
+                    </details>
                 </div>
-            </div>
-            <img src="src/images/blocks/hero/cover.png" alt="Приветственная картинка" class="hero__image">
-        </section>
-        <section class="advantages" id="advantages">
-            <h2 class="advantages__title section__title">Наши преимущества</h2>
-            <div class="advantages__container">
-                <article class="advantages__card">
-                    <div class="advantages__card-header">
-                        <img src="src/images/blocks/advantages/emoji1.png" class="advantages__card-icon" alt="Умный эмодзи">
-                        <h3 class="advantages__card-title">Легко и просто</h3>
-                    </div>
-                    <p class="advantages__card-content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.
-                    </p>
-                </article>
-                <article class="advantages__card">
-                    <div class="advantages__card-header">
-                        <img src="src/images/blocks/advantages/emoji2.png" class="advantages__card-icon" alt="Крутой эмодзи">
-                        <h3 class="advantages__card-title">Быстро и доступно</h3>
-                    </div>
-                    <p class="advantages__card-content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.
-                    </p>
-                </article>
-                <article class="advantages__card">
-                    <div class="advantages__card-header">
-                        <img src="src/images/blocks/advantages/emoji3.png" class="advantages__card-icon" alt="Весёлый эмодзи">
-                        <h3 class="advantages__card-title">А главное, качественно</h3>
-                    </div>
-                    <p class="advantages__card-content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.
-                    </p>
-                </article>
-            </div>
-        </section>
-        <section class="steps" id="steps">
-            <h2 class="steps__title section__title">Как мы работаем</h2>
-            <div class="steps__content-container">
-                <img src="src/images/blocks/steps/steps.png" alt="Рука с телефоном" class="steps__cover">
-                <div class="steps__content">
-                    <div class="steps__text-container">
-                        <div class="steps__header">
-                            <p class="steps__header-text steps__header-text--active">Lorem ipsum</p>
-                            <div class="steps__header-separator"></div>
-                            <p class="steps__header-text">Lorem ipsum</p>
-                            <div class="steps__header-separator"></div>
-                            <p class="steps__header-text">Lorem ipsum</p>
-                        </div>
-                        <div class="steps__body">
-                            <div class="steps__body-container">
-                                <h2 class="steps__body-title section__title">Lorem ipsum dolor sit amet, consectetur.</h2>
-                                <p class="steps__body-slogan">Semper sollicitudin ut cursus nunc eu ultricies.</p>
+            </section>
+            <section class="feedback" id="feedback">
+                <h2 class="feedback__title section__title">Обратная связь</h2>
+                <div class="feedback__container">
+                    <div class="feedback__content">
+                        <p class="feedback__content-description">Поговорите с одним из наших сотрудников, чтобы узнать, сколько мы можем получить для вас целевой аудитории за месяц с минимальными усилиями с вашей стороны</p>
+                        <form class="feedback__content-form">
+                            <div class="feedback__content-inputs">
+                                <label class="feedback__container-label form-label">
+                                    <input
+                                            type="email"
+                                            class="feedback__content-input form-input"
+                                            placeholder="Введите свой e-mail"
+                                            required
+                                    >
+                                </label>
+                                <label class="feedback__container-label form-label">
+                                    <input
+                                            type="tel"
+                                            class="feedback__content-input form-input"
+                                            placeholder="Номер мобильного телефона"
+                                            required
+                                    >
+                                </label>
+                                <label class="feedback__container-label form-label">
+                                    <input
+                                            type="text"
+                                            class="feedback__content-input form-input"
+                                            placeholder="Никнейм в Instagram"
+                                            required
+                                    >
+                                </label>
+                                <label class="feedback__container-label form-label">
+                                    <textarea
+                                            rows="2"
+                                            class="feedback__content-textarea form-input"
+                                            placeholder="Что вы бы хотели спросить о росте в Instagram"
+                                    ></textarea>
+                                </label>
                             </div>
-                            <div class="steps__body-content">
-                                <p class="steps__body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere lorem nulla tincidunt egestas nibh. Non orci, et massa sed vulputate proin. Eu euismod diam, arcu sit vitae nam. Tristique orci, ornare sit vel amet.</p>
-                                <p class="steps__body-text">Ut elit dui iaculis malesuada in auctor dui. Sollicitudin varius vitae ut vitae lacus, sem dolor fermentum enim. Orci orci interdum pretium adipiscing augue sit nisl adipiscing.</p>
+                            <div class="feedback__content-submit">
+                                <button class="feedback__content-button main-button main-button-primary">Отправить заявку</button>
+                                <span class="feedback__content-span form-span">
+                                    Нажимая на кнопку вы соглашаетесь на обработку <a class="feedback__content-span--link form-span--link" href="#">персональных данных</a>
+                                </span>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                    <button class="steps__button main-button main-button-primary">Забронировать звонок</button>
+                    <div class="feedback__cover">
+                        <img src="src/images/blocks/feedback/feedback.png" alt="Крутая картинка для обратной свзяи">
+                    </div>
                 </div>
+            </section>
+        </main>
+        <footer class="footer" id="footer">
+            <div class="footer__info">
+                <a href="#" class="footer__info-title">Инстаботы</a>
+                <p class="footer__info-text">&copy; 2021 Copyright reserved Instabots</p>
             </div>
-        </section>
-        <section class="pricing" id="pricing">
-            <h2 class="pricing__title section__title">Наши тарифы</h2>
-            <div class="pricing__grid">
-                <article class="pricing__card">
-                    <div class="pricing__card-header">
-                        <h3 class="pricing__card-title">Эконом</h3>
-                        <p class="pricing__card-price"><span class="pricing__card-price--accent">2 990руб</span>/месяц</p>
-                    </div>
-                    <div class="pricing__card-content">
-                        <div class="pricing__card-advantages">
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
-                            </div>
-                        </div>
-                        <button class="pricing__card-button main-button">Узнать подробнее</button>
-                    </div>
-                </article>
-                <article class="pricing__card">
-                    <div class="pricing__card-header">
-                        <h3 class="pricing__card-title">Стандарт</h3>
-                        <p class="pricing__card-price"><span class="pricing__card-price--accent">4 990руб</span>/месяц</p>
-                    </div>
-                    <div class="pricing__card-content">
-                        <div class="pricing__card-advantages">
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
-                            </div>
-                        </div>
-                        <button class="pricing__card-button main-button">Узнать подробнее</button>
-                    </div>
-                </article>
-                <article class="pricing__card">
-                    <div class="pricing__card-header">
-                        <h3 class="pricing__card-title">Экстра</h3>
-                        <p class="pricing__card-price"><span class="pricing__card-price--accent">8 990руб</span>/месяц</p>
-                    </div>
-                    <div class="pricing__card-content">
-                        <div class="pricing__card-advantages">
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
-                            </div>
-                        </div>
-                        <button class="pricing__card-button main-button">Узнать подробнее</button>
-                    </div>
-                </article>
-                <article class="pricing__card">
-                    <div class="pricing__card-header">
-                        <h3 class="pricing__card-title">Премиальный</h3>
-                        <p class="pricing__card-price"><span class="pricing__card-price--accent">12 990руб</span>/месяц</p>
-                    </div>
-                    <div class="pricing__card-content">
-                        <div class="pricing__card-advantages">
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active-icon-active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="pricing__card-advantage">
-                                <div class="pricing__card-icon pricing__card-icon--active"></div>
-                                <p class="pricing__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio.</p>
-                            </div>
-                        </div>
-                        <button class="pricing__card-button main-button">Узнать подробнее</button>
-                    </div>
-                </article>
-            </div>
-        </section>
-        <section class="reviews" id="reviews">
-            <h2 class="reviews__title section__title">Отзывы</h2>
-            <div class="reviews__container">
-                <article class="reviews__card">
-                    <div class="reviews__card-header">
-                        <div class="reviews__card-user">
-                            <div class="reviews__card-avatar">
-                                <img src="src/images/blocks/reviews/cat1.png" alt="Аватарка пользователя">
-                            </div>
-                            <div class="reviews__card-name">Кот Олежка</div>
-                        </div>
-                        <p class="reviews__card-date">03.06.2021</p>
-                    </div>
-                    <div class="reviews__card-content">
-                        <div class="reviews__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
-                        <div class="reviews__card-stars">
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                        </div>
-                    </div>
-                </article>
-                <article class="reviews__card">
-                    <div class="reviews__card-header">
-                        <div class="reviews__card-user">
-                            <div class="reviews__card-avatar">
-                                <img src="src/images/blocks/reviews/cat2.png" alt="Аватарка пользователя">
-                            </div>
-                            <div class="reviews__card-name">Кот Семен</div>
-                        </div>
-                        <p class="reviews__card-date">03.06.2021</p>
-                    </div>
-                    <div class="reviews__card-content">
-                        <div class="reviews__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
-                        <div class="reviews__card-stars">
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                        </div>
-                    </div>
-                </article>
-                <article class="reviews__card">
-                    <div class="reviews__card-header">
-                        <div class="reviews__card-user">
-                            <div class="reviews__card-avatar">
-                                <img src="src/images/blocks/reviews/cat3.png" alt="Аватарка пользователя">
-                            </div>
-                            <div class="reviews__card-name">Кот Серёга</div>
-                        </div>
-                        <p class="reviews__card-date">03.06.2021</p>
-                    </div>
-                    <div class="reviews__card-content">
-                        <div class="reviews__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
-                        <div class="reviews__card-stars">
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star"></div>
-                            <div class="reviews__card-star"></div>
-                        </div>
-                    </div>
-                </article>
-                <article class="reviews__card">
-                    <div class="reviews__card-header">
-                        <div class="reviews__card-user">
-                            <div class="reviews__card-avatar">
-                                <img src="src/images/blocks/reviews/cat4.png" alt="Аватарка пользователя">
-                            </div>
-                            <div class="reviews__card-name">Кот Иноккентий</div>
-                        </div>
-                        <p class="reviews__card-date">03.06.2021</p>
-                    </div>
-                    <div class="reviews__card-content">
-                        <div class="reviews__card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada gravida nisi sit felis odio. Sociis et pellentesque sed id. Congue arcu turpis est, aliquet porttitor. Congue arcu turpis est, aliquet porttitor.</div>
-                        <div class="reviews__card-stars">
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star reviews__card-star--active"></div>
-                            <div class="reviews__card-star"></div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <button class="reviews__button main-button">Структурировать котиков</button>
-        </section>
-        <section class="promo" id="promo">
-            <img src="src/images/blocks/promo/promo.png" alt="Завлекающая продающая картинка" class="promo__cover">
-            <div class="promo__content">
-                <h2 class="promo__content-title">Получите самую выгодную цену на планете</h2>
-                <form class="promo__content-form">
-                    <label class="promo__form-div form-label">
-                        <input class="promo__form-input form-input" type="email" placeholder="Введите свой e-mail" required>
-                        <button class="promo__form-button main-button main-button-primary">Отправить</button>
-                    </label>
-                    <span class="promo__form-span form-span">
-                        Нажимая на кнопку вы соглашаетесь на обработку <a class="promo__form-span--link form-span--link" href="#">персональных данных</a>
-                    </span>
-                </form>
-            </div>
-        </section>
-        <section class="faq" id="faq">
-            <h2 class="faq__title section__title">Часто задаваемые вопросы</h2>
-            <div class="faq__container">
-                <details class="faq__container-question" open>
-                    <summary class="faq__question-title">
-                        Первый вопрос
-                        <span class="faq__question-mark"></span>
-                    </summary>
-                    <div class="faq__question-details">
-                        <p class="faq__question-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa mi aliquet eu interdum eu pellentesque amet, fermentum hendrerit. Nunc hendrerit nec risus adipiscing lacus, lobortis lectus cursus nunc. Id pellentesque dapibus eu tincidunt dui id tortor, porttitor. Tincidunt nunc praesent euismod in nisl, tellus suspendisse morbi nam. Egestas eget erat malesuada gravida. Et enim integer quam orci, cursus tincidunt mauris, sit.
-                        </p>
-                    </div>
-                </details>
-                <details class="faq__container-question">
-                    <summary class="faq__question-title">
-                        Второй вопрос
-                        <span class="faq__question-mark"></span>
-                    </summary>
-                    <div class="faq__question-details">
-                        <p class="faq__question-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa mi aliquet eu interdum eu pellentesque amet, fermentum hendrerit. Nunc hendrerit nec risus adipiscing lacus, lobortis lectus cursus nunc. Id pellentesque dapibus eu tincidunt dui id tortor, porttitor. Tincidunt nunc praesent euismod in nisl, tellus suspendisse morbi nam. Egestas eget erat malesuada gravida. Et enim integer quam orci, cursus tincidunt mauris, sit.
-                        </p>
-                    </div>
-                </details>
-                <details class="faq__container-question">
-                    <summary class="faq__question-title">
-                        Третий вопрос
-                        <span class="faq__question-mark"></span>
-                    </summary>
-                    <div class="faq__question-details">
-                        <p class="faq__question-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa mi aliquet eu interdum eu pellentesque amet, fermentum hendrerit. Nunc hendrerit nec risus adipiscing lacus, lobortis lectus cursus nunc. Id pellentesque dapibus eu tincidunt dui id tortor, porttitor. Tincidunt nunc praesent euismod in nisl, tellus suspendisse morbi nam. Egestas eget erat malesuada gravida. Et enim integer quam orci, cursus tincidunt mauris, sit.
-                        </p>
-                    </div>
-                </details>
-                <details class="faq__container-question">
-                    <summary class="faq__question-title">
-                        Четвёртый вопрос
-                        <span class="faq__question-mark"></span>
-                    </summary>
-                    <div class="faq__question-details">
-                        <p class="faq__question-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa mi aliquet eu interdum eu pellentesque amet, fermentum hendrerit. Nunc hendrerit nec risus adipiscing lacus, lobortis lectus cursus nunc. Id pellentesque dapibus eu tincidunt dui id tortor, porttitor. Tincidunt nunc praesent euismod in nisl, tellus suspendisse morbi nam. Egestas eget erat malesuada gravida. Et enim integer quam orci, cursus tincidunt mauris, sit.
-                        </p>
-                    </div>
-                </details>
-            </div>
-        </section>
-        <section class="feedback" id="feedback">
-            <h2 class="feedback__title section__title">Обратная связь</h2>
-            <div class="feedback__container">
-                <div class="feedback__content">
-                    <p class="feedback__content-description">Поговорите с одним из наших сотрудников, чтобы узнать, сколько мы можем получить для вас целевой аудитории за месяц с минимальными усилиями с вашей стороны</p>
-                    <form class="feedback__content-form">
-                        <div class="feedback__content-inputs">
-                            <label class="feedback__container-label form-label">
-                                <input
-                                        type="email"
-                                        class="feedback__content-input form-input"
-                                        placeholder="Введите свой e-mail"
-                                        required
-                                >
-                            </label>
-                            <label class="feedback__container-label form-label">
-                                <input
-                                        type="tel"
-                                        class="feedback__content-input form-input"
-                                        placeholder="Номер мобильного телефона"
-                                        required
-                                >
-                            </label>
-                            <label class="feedback__container-label form-label">
-                                <input
-                                        type="text"
-                                        class="feedback__content-input form-input"
-                                        placeholder="Никнейм в Instagram"
-                                        required
-                                >
-                            </label>
-                            <label class="feedback__container-label form-label">
-                                <textarea
-                                        rows="2"
-                                        class="feedback__content-textarea form-input"
-                                        placeholder="Что вы бы хотели спросить о росте в Instagram"
-                                ></textarea>
-                            </label>
-                        </div>
-                        <div class="feedback__content-submit">
-                            <button class="feedback__content-button main-button main-button-primary">Отправить заявку</button>
-                            <span class="feedback__content-span form-span">
-                                Нажимая на кнопку вы соглашаетесь на обработку <a class="feedback__content-span--link form-span--link" href="#">персональных данных</a>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-                <div class="feedback__cover">
-                    <img src="src/images/blocks/feedback/feedback.png" alt="Крутая картинка для обратной свзяи">
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="footer" id="footer">
-        <div class="footer__info">
-            <a href="#" class="footer__info-title">Инстаботы</a>
-            <p class="footer__info-text">&copy; 2021 Copyright reserved Instabots</p>
-        </div>
-        <a href="#header" class="footer__up">
-            <p class="footer__up-text">Вернуться наверх</p>
-            <p class="footer__up-text footer__up-text-mobile">Наверх</p>
-            <img src="src/images/svg/footer/arrow-up.svg" alt="Стрелочка вверх">
-        </a>
-    </footer>
+            <a href="#header" class="footer__up">
+                <p class="footer__up-text">Вернуться наверх</p>
+                <p class="footer__up-text footer__up-text-mobile">Наверх</p>
+                <svg class='footer__up-arrow'><use xlink:href='#arrow-up'></use></svg>
+            </a>
+        </footer>
+  </div>
+
+    <script type="module" src="src/scripts/index.js"></script>
   </body>
 </html>

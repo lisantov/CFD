@@ -1,22 +1,9 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-@keyframes wobble {
-  0% {
-    transform: translateY(0px);
-  }
-  25% {
-    transform: translateY(-3px);
-  }
-  75% {
-    transform: translateY(3px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
 
 .footer {
+  width: 100%;
   padding: 24px 56px;
   display: flex;
   justify-content: space-between;
@@ -50,23 +37,38 @@
     text-decoration: none;
     gap: 8px;
     cursor: pointer;
+    color: $white;
     transition: 0.25s ease-in-out;
 
     &:hover {
-      opacity: 0.8;
-      transform: translateY(-3px)
+      color: $light-grey;
     }
 
-    &:hover img {
-      animation: wobble infinite 0.9s linear;
+    &:hover &-arrow {
+      height: 21px;
+    }
+
+    &:hover &-arrow use {
+      fill: $light-grey;
+      transform: scaleY(1.15);
     }
 
     &-text {
       @include desktop-text(body);
-      color: $white;
 
       &-mobile {
         display: none;
+      }
+    }
+
+    &-arrow {
+      height: 18px;
+      width: 14px;
+      transition: 0.25s ease-in-out;
+
+      & use {
+        fill: $white;
+        transition: 0.25s ease-in-out;
       }
     }
   }

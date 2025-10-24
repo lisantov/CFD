@@ -43,5 +43,6 @@
 @media (max-width: 600px) {
   .main-button {
     @include mobile-text(span);
+    padding: 10px 24px;
   }
 }
