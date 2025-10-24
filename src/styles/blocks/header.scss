@@ -9,6 +9,7 @@
   align-items: center;
   background-color: $white;
   border-radius: 24px 24px 0 0;
+  z-index: 2;
 
   &__sidebar-container {
     display: flex;
@@ -23,17 +24,35 @@
     align-items: center;
     border: none;
     background-color: transparent;
+    background-image: url("../../images/svg/header/sidebar.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding: 8px;
     cursor: pointer;
+
+    .wrapper--menu & {
+      background-image: url("../../images/svg/header/sidebar-close.svg");
+      background-size: 150%;
+    }
   }
 
   &__logo{
     text-decoration: none;
+    color: $blue;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+      color: $hover-color;
+    }
+
+    &:active {
+      color: $inactive-color;
+    }
   }
 
   &__title {
     @include desktop-text(headline);
-    color: $blue;
   }
 
   &__navigation {

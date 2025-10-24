@@ -5,6 +5,7 @@
 @use "base/base";
 
 @use 'blocks/header';
+@use 'blocks/sidebar';
 @use 'blocks/hero';
 @use 'blocks/advantages';
 @use 'blocks/steps';
@@ -27,15 +28,22 @@ body {
   justify-content: center;
   align-items: center;
   background-color: $page;
-  padding: $page-padding;
+  padding: var(--page-padding);
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 1920px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.wrapper.wrapper--menu {
+  height: calc(100vh - var(--page-padding) * 2);
 }
 
 .main {

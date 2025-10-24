@@ -146,4 +146,18 @@ $hover: 0 24px 24px #505DEC40;
 $inactive: 0 8px 24px #3C49DD1A;
 
 // ОТСТУП СТРАНИЦЫ
-$page-padding: 24px;
+:root {
+  --page-padding: 24px;
+}
+
+@media (max-width: 1000px) {
+  :root {
+    --page-padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --page-padding: 8px;
+  }
+}

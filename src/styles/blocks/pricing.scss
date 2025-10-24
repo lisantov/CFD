@@ -47,7 +47,7 @@
       flex-direction: column;
       justify-content: center;
       gap: 8px;
-      background-color: $white;
+      background-color: rgba($white, 0.5);
       border-radius: 24px;
     }
 
@@ -76,7 +76,7 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: stretch;
-      background-color: rgba($white, 0.6);
+      background-color: rgba($white, 0.5);
       gap: 16px;
       border-radius: 0 0 24px 24px;
       transition: 0.25s ease-in-out;
@@ -100,6 +100,9 @@
       flex-shrink: 0;
       width: 32px;
       aspect-ratio: 1;
+      border-radius: 100%;
+      border: 1px solid $white;
+      background-color: rgba($white, 0.5);
       background-image: url("../../images/svg/pricing/cross.svg");
       background-position: center;
       background-size: cover;
