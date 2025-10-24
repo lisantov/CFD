@@ -17,16 +17,29 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    align-items: start;
     gap: 24px;
   }
 
   &__card {
     @include panel-on-white();
     width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 24px;
+    margin-bottom: 0;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+      margin-bottom: -8px;
+      box-shadow: -8px 0 25px #423F5640;
+    }
+
+    &:hover &-content {
+      gap: 24px;
+    }
 
     &-header {
       padding: 20px 24px;
@@ -49,7 +62,12 @@
 
       &--accent {
         color: $blue;
+        transition: 0.25s ease-in-out;
       }
+    }
+
+    &:hover &-price--accent {
+      color: $hover-color;
     }
 
     &-content {
@@ -61,6 +79,7 @@
       background-color: rgba($white, 0.6);
       gap: 16px;
       border-radius: 0 0 24px 24px;
+      transition: 0.25s ease-in-out;
     }
 
     &-advantages {
