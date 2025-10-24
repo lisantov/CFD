@@ -71,7 +71,16 @@
   &__icon {
     width: 24px;
     height: 32px;
-    aspect-ratio: 1;
+
+    &-svg {
+      stroke: $white;
+      transition: 0.25s ease-in-out;
+    }
+
+  }
+
+  &__hint:hover &__icon-svg {
+    stroke: $hover-color;
   }
 
   &__span {

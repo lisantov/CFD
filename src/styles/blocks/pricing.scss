@@ -81,13 +81,13 @@
       flex-shrink: 0;
       width: 32px;
       aspect-ratio: 1;
-      background-image: url("../../images/svg/cross.svg");
+      background-image: url("../../images/svg/pricing/cross.svg");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
 
       &--active {
-        background-image: url("../../images/svg/checkmark.svg");
+        background-image: url("../../images/svg/pricing/checkmark.svg");
       }
     }
 

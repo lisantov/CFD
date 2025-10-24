@@ -134,13 +134,13 @@
     &-star {
       width: 24px;
       aspect-ratio: 1;
-      background-image: url("../../images/star.png");
+      background-image: url("../../images/svg/star/star.svg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
 
       &--active {
-        background-image: url("../../images/svg/star-active.svg");
+        background-image: url("../../images/svg/star/star-active.svg");
       }
     }
   }
