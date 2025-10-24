@@ -1,8 +1,9 @@
 @use "../../mixins" as *;
 @use "../../variables" as *;
 
-.form-div {
-  padding: 8px;
+.form-label {
+  position: relative;
+  padding: 0 8px 0 16px;
   display: flex;
   justify-content: space-between;
   gap: 8px;
@@ -10,8 +11,18 @@
   border: 1px solid rgba($white, 0.2);
   border-radius: 16px;
   background-color: $page;
+  cursor: text;
+  transition: 0.25s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 8px 20px #5E54A040;
+  }
+
+  &:active {
+    box-shadow: 0 8px 20px #5E54A040;
+  }
 }
 
-.form-div:has(input:focus) {
+.form-label:has(input:focus) {
   outline: 2px solid rgba($blue, 0.8);
 }

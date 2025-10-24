@@ -55,6 +55,17 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
+    color: $white;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+      color: $hover-color;
+    }
+
+    &:active {
+      color: $inactive-color;
+    }
   }
 
   &__icon {
@@ -65,7 +76,6 @@
 
   &__span {
     @include desktop-text(table);
-    color: $white;
   }
 }
 

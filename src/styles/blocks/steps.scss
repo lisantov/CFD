@@ -67,6 +67,16 @@
     &-text {
       @include desktop-text(body);
       color: $white;
+      cursor: pointer;
+      transition: 0.25s ease-in-out;
+
+      &:hover {
+        color: $hover-color;
+      }
+
+      &:active {
+        color: $inactive-color;
+      }
 
       &--active {
         @include desktop-text(span);

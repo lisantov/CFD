@@ -3,12 +3,28 @@
 
 .form-input {
   @include desktop-text(body);
-  padding-left: 8px;
   width: 100%;
-  color: $grey;
-  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba($white, 0.2);
+  border-radius: 16px;
   background-color: transparent;
-  outline: none;
+  padding: 16px 0;
+  caret-color: $hover-color;
+  transition: 0.25s ease-in-out;
+
+  &:hover {
+    color: $hover-color;
+  }
+
+  &:hover::placeholder {
+    color: $hover-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 @media (max-width: 600px) {

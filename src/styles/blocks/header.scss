@@ -58,7 +58,11 @@
     transition: 0.15s ease-in-out;
 
     &:hover {
-      color: rgba($blue, 0.7);
+      color: $hover-color;
+    }
+
+    &:active {
+      color: $inactive-color;
     }
   }
 
@@ -86,10 +90,14 @@
   }
 
   &__language {
-    transition: 0.15s ease-in-out;
+    transition: 0.25s ease-in-out;
 
     &:hover {
-      color: rgba($blue, 0.7);
+      color: $hover-color;
+    }
+
+    &:hover {
+      color: $inactive-color;
     }
   }
 
