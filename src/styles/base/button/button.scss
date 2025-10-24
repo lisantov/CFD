@@ -13,16 +13,31 @@
   background-color: $white;
   color: $blue;
   transition: 0.25s ease-in-out;
-}
 
-.main-button:hover {
-  opacity: 0.8;
-  transform: translateY(-2px);
-}
+  &:hover {
+    color: $hover-color;
+    box-shadow: 0 7px 15px rgba($hover-color, 0.25);
+  }
 
-.main-button-primary {
-  background-color: $blue;
-  color: $white;
+  &:active {
+    color: $inactive-color;
+    box-shadow: 0 8px 24px rgba($inactive-color, 0.10);
+  }
+
+  &-primary {
+    background-color: $blue;
+    color: $white;
+
+    &:hover {
+      color: $white;
+      background-color: $hover-color;
+    }
+
+    &:active {
+      color: $white;
+      background-color: $inactive-color;
+    }
+  }
 }
 
 @media (max-width: 600px) {
