@@ -1,7 +1,7 @@
 // ЭЛЕМЕНТЫ
 let reviewsCards = document.querySelectorAll('.reviews__card');
 const reviewClasses = ['reviews__card--top', 'reviews__card--right', 'reviews__card--bottom'];
-const reviewsContainer = document.querySelector('.reviews__container');
+const reviewsContainer = document.querySelector('.reviews');
 const structureButton = document.querySelector('.reviews__button');
 
 const reOrderReviews = () => {
@@ -19,7 +19,8 @@ const structurizeReviews = () => {
     });
     structureButton.remove();
     const structuredText = document.createElement('p');
-    structuredText.classList.add('reviews__card-text reviews__card-text--success');
+    structuredText.classList.add('reviews__card-text');
+    structuredText.classList.add('reviews__card-text--success');
     structuredText.textContent = 'Котики структурированы!';
     reviewsContainer.appendChild(structuredText);
 };
