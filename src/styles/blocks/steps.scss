@@ -59,13 +59,13 @@
   &::after {
     content: "";
     position: absolute;
-    width: 500px;
+    width: 300px;
     aspect-ratio: 1;
     border-radius: 100%;
   }
 
   &::before {
-    width: 500px;
+    width: 300px;
     top: -200px;
     right: 0;
     background-image: radial-gradient($purple 50%, $blue 50%);
