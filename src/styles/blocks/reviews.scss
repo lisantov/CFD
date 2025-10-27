@@ -1,7 +1,7 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-@keyframes background1 {
+@keyframes reviews1 {
   0% {
     right: 0;
     top: -125px;
@@ -24,7 +24,7 @@
   }
 }
 
-@keyframes background2 {
+@keyframes reviews2 {
   0% {
     right: 0;
     bottom: -125px;
@@ -69,7 +69,7 @@
     right: 0;
     background-image: radial-gradient($pink 50%, $purple 50%);
     z-index: -3;
-    animation: background1 6s ease infinite;
+    animation: reviews1 6s ease infinite;
   }
 
   &::after {
@@ -78,7 +78,7 @@
     right: -100px;
     background-image: radial-gradient($purple 50%, $blue 50%);
     z-index: -3;
-    animation: background2 10s ease infinite;
+    animation: reviews2 10s ease infinite;
   }
 
   &__container {

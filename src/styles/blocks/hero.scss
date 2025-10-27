@@ -1,7 +1,7 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-@keyframes background1 {
+@keyframes hero1 {
   0% {
     left: 0;
     bottom: -125px;
@@ -12,7 +12,7 @@
   }
   50% {
     left: 75px;
-    bottom: 0px;
+    bottom: 0;
   }
   75% {
     left: 150px;
@@ -24,7 +24,7 @@
   }
 }
 
-@keyframes background2 {
+@keyframes hero2 {
   0% {
     left: 0;
     bottom: -125px;
@@ -47,6 +47,20 @@
   }
 }
 
+@keyframes scale-out1 {
+  to {
+    scale: 0.8;
+    bottom: 30%;
+  }
+}
+
+@keyframes scale-out2 {
+  to {
+    scale: 0.8;
+    top: 25%;
+  }
+}
+
 .hero {
   position: relative;
   display: grid;
@@ -62,7 +76,7 @@
     border-radius: 100%;
     background-color: $blue;
     z-index: -3;
-    animation: background1 10s ease infinite;
+    animation: hero1 10s ease infinite;
   }
 
   &::after {
@@ -75,7 +89,7 @@
     border-radius: 100%;
     background-color: $purple;
     z-index: -3;
-    animation: background2 10s ease-in-out infinite;
+    animation: hero2 10s ease infinite;
   }
 
   &__content {
@@ -117,6 +131,7 @@
     gap: 8px;
     cursor: pointer;
     color: $white;
+    text-decoration: none;
     transition: 0.25s ease-in-out;
 
     &:hover {
@@ -145,6 +160,57 @@
 
   &__span {
     @include desktop-text(table);
+  }
+
+  &__cover {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    &--in::before {
+      animation: scale-out1 2s reverse ease forwards;
+    }
+
+    &--in::after {
+      animation: scale-out2 2s reverse ease forwards;
+    }
+
+    &--out::before {
+      animation: scale-out1 2s ease forwards;
+    }
+
+    &--out::after {
+      animation: scale-out2 2s ease forwards;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 20%;
+      width: 45%;
+      aspect-ratio: 1;
+      background-color: $blue;
+      border-radius: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 70%;
+      left: 28%;
+      top: 15%;
+      aspect-ratio: 1;
+      background-color: $white;
+      border-radius: 100%;
+    }
+
+    &-image {
+      width: 100%;
+      z-index: 1;
+    }
   }
 }
 

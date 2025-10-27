@@ -1,6 +1,33 @@
 @use "../mixins" as *;
 @use "../variables" as *;
 
+@keyframes feedback-gradient {
+  0% {
+    width: 500px;
+    bottom: -40%;
+    transform: rotateZ(0deg);
+  }
+  50% {
+    width: 600px;
+    bottom: -60%;
+    transform: rotateZ(360deg);
+  }
+  100% {
+    bottom: -40%;
+    width: 500px;
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    scale: 1.3;
+  }
+  to {
+    scale: 1;
+  }
+}
+
 .feedback {
   padding: 80px 56px;
   display: flex;
@@ -59,45 +86,68 @@
   &__cover {
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &-bg {
-    position: relative;
-    width: 515px;
+    width: min-content;
     aspect-ratio: 1;
-    display: flex;
+    justify-self: center;
     justify-content: center;
     align-items: center;
-    border-radius: 100%;
+    border-radius: 0 0 100% 100%;
     overflow: hidden;
 
-    &::after {
-      content: "";
+    &--animation {
+      animation: scale-in 1.5s ease forwards;
+    }
+
+    &-container {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 1;
-      background-image: linear-gradient(to top, rgba($white, 0), rgba($white, 1));
-    }
-
-    &-image {
-      filter: blur(160px);
-    }
-  }
-
-  &-fg {
-    position: absolute;
-    bottom: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-
-    &-image {
-      border-radius: 0 0 100% 100%;
+      inset: 40px 20px -10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      border-radius: 100%;
+      background-image: linear-gradient(to-top, $page, rgba($page, 0));
       overflow: hidden;
+      z-index: 0;
+    }
+
+    &-colors {
+      position: absolute;
+      bottom: -40%;
+      width: 500px;
+      aspect-ratio: 1;
+      border-radius: 100%;
+      background-color: $blue;
+      filter: blur(160px);
+      opacity: 0.6;
+      z-index: 1;
+      animation:  5s feedback-gradient infinite ease;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -15%;
+        width: 500px;
+        aspect-ratio: 1;
+        border-radius: 100%;
+        background-image: radial-gradient($purple 40%, $blue 40%);
+        z-index: -1;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -60%;
+        top: -5%;
+        width: 400px;
+        aspect-ratio: 1;
+        border-radius: 100%;
+        background-color: $pink;
+      }
+    }
+
+    &-image {
+      z-index: 1;
     }
   }
 }

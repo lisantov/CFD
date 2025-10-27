@@ -1,6 +1,24 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
+@keyframes rotateIn {
+  from {
+    transform: rotateZ(-30deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes rotateOut {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(30deg);
+  }
+}
+
 .promo {
   padding: 80px 56px;
   display: grid;
@@ -10,6 +28,14 @@
 
   &__cover {
     width: 100%;
+
+    &--in {
+      animation: rotateIn 1.7s ease forwards;
+    }
+
+    &--out {
+      animation: rotateOut 1.7s ease forwards;
+    }
   }
 
   &__content {

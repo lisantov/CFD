@@ -1,7 +1,7 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-@keyframes background1 {
+@keyframes faq1 {
   0% {
     right: 0;
     top: -125px;
@@ -24,7 +24,7 @@
   }
 }
 
-@keyframes background2 {
+@keyframes faq2 {
   0% {
     right: 0;
     top: -125px;
@@ -69,7 +69,7 @@
     right: 0;
     background-image: radial-gradient($pink 50%, $purple 50%);
     z-index: -3;
-    animation: background2 15s ease infinite;
+    animation: faq2 15s ease infinite;
   }
 
   &::after {
@@ -78,7 +78,7 @@
     left: 0;
     background-image: radial-gradient($purple 50%, $blue 50%);
     z-index: -3;
-    animation: background1 9s ease infinite;
+    animation: faq1 9s ease infinite;
   }
 
   &__title {

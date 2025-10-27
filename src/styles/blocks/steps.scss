@@ -1,7 +1,7 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-@keyframes background1 {
+@keyframes steps1 {
   0% {
     right: 0;
     top: -125px;
@@ -24,7 +24,7 @@
   }
 }
 
-@keyframes background2 {
+@keyframes steps2 {
   0% {
     left: 0;
     bottom: -125px;
@@ -47,6 +47,24 @@
   }
 }
 
+@keyframes scale-in1 {
+  from {
+    scale: 0.7;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes scale-in2 {
+  from {
+    scale: 0.95;
+  }
+  to {
+    scale: 1;
+  }
+}
+
 .steps {
   position: relative;
   padding: 80px 56px;
@@ -65,12 +83,12 @@
   }
 
   &::before {
-    width: 300px;
+    width: 400px;
     top: -200px;
     right: 0;
     background-image: radial-gradient($purple 50%, $blue 50%);
     z-index: -3;
-    animation: background1 10s ease infinite;
+    animation: steps1 10s ease infinite;
   }
 
   &::after {
@@ -79,7 +97,7 @@
     left: -150px;
     background-color: $pink;
     z-index: -3;
-    animation: background2 7s ease infinite;
+    animation: steps2 7s ease infinite;
   }
 
   &__content-container {
@@ -92,8 +110,34 @@
   }
 
   &__cover {
+    position: relative;
     width: 100%;
     max-width: 630px;
+
+    &-image {
+      width: 100%;
+    }
+
+    &--animation &-image {
+      animation: scale-in2 2s forwards ease;
+    }
+
+    &--animation::after {
+      animation: scale-in1 2s forwards ease;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 50px;
+      width: 300px;
+      aspect-ratio: 1;
+      border-radius: 100%;
+      background-color: $pink;
+      z-index: -1;
+    }
   }
 
   &__content {
@@ -198,9 +242,13 @@
     gap: 24px;
 
     &::before {
-      width: 600px;
-      top: 30%;
+      width: 300px;
     }
+
+    &::after {
+      width: 250px;
+    }
+
 
     &__content-container {
       grid-template-columns: 100%;
@@ -217,9 +265,8 @@
       gap: 40px;
     }
 
-    &::before,
-    &::after {
-      width: 400px;
+    &__cover::after {
+      width: 40%;
     }
 
     &::after {

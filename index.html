@@ -26,7 +26,7 @@
             <div class="header__sidebar-container">
                 <button class="header__sidebar-button"></button>
                 <a class="header__logo" href="#">
-                    <h1 class="header__title">Инстаботы</h1>
+                    <h1 class="header__title" id="hero-out">Инстаботы</h1>
                 </a>
             </div>
             <div class="header__navigation">
@@ -84,12 +84,14 @@
                             </span>
                         </form>
                     </div>
-                    <div class="hero__hint">
+                    <a href="#advantages" class="hero__hint">
                         <svg class='hero__icon'><use class='hero__icon-svg' xlink:href='#mouse-icon'></use></svg>
                         <span class="hero__span">Листайте дальше</span>
-                    </div>
+                    </a>
                 </div>
-                <img src="src/images/blocks/hero/cover.png" alt="Приветственная картинка" class="hero__image">
+                <div class="hero__cover">
+                    <img class="hero__cover-image" src="src/images/blocks/hero/cover.png" alt="Приветственная картинка">
+                </div>
             </section>
             <section class="advantages" id="advantages">
                 <h2 class="advantages__title section__title">Наши преимущества</h2>
@@ -126,7 +128,9 @@
             <section class="steps" id="steps">
                 <h2 class="steps__title section__title">Как мы работаем</h2>
                 <div class="steps__content-container">
-                    <img src="src/images/blocks/steps/steps.png" alt="Рука с телефоном" class="steps__cover">
+                    <div class="steps__cover">
+                        <img class="steps__cover-image" src="src/images/blocks/steps/steps.png" alt="Рука с телефоном">
+                    </div>
                     <div class="steps__content">
                         <div class="steps__content-slider">
                             <div class="steps__content-tab">
@@ -401,7 +405,7 @@
                 <button class="reviews__button main-button">Структурировать котиков</button>
             </section>
             <section class="promo" id="promo">
-                <img src="src/images/blocks/promo/promo.png" alt="Завлекающая продающая картинка" class="promo__cover">
+                <img class="promo__cover" src="src/images/blocks/promo/promo.png" alt="Завлекающая продающая картинка">
                 <div class="promo__content">
                     <h2 class="promo__content-title">Получите самую выгодную цену на планете</h2>
                     <form class="promo__content-form">
@@ -451,7 +455,7 @@
                             </p>
                         </div>
                     </details>
-                    <details class="faq__question">
+                    <details class="faq__question" id="promo-out">
                         <summary class="faq__question-title">
                             Четвёртый вопрос
                             <span class="faq__question-mark"></span>
@@ -512,7 +516,11 @@
                         </form>
                     </div>
                     <div class="feedback__cover">
-                        <img src="src/images/blocks/feedback/feedback.png" alt="Крутая картинка для обратной свзяи">
+                        <div class="feedback__cover-container">
+                            <div class="feedback__cover-colors"></div>
+                        </div>
+                        <img class="feedback__cover-image" src="./src/images/blocks/feedback/human.png" alt="Человек в очках виртуальной реальности">
+                        <!--<img src="src/images/blocks/feedback/feedback.png" alt="Крутая картинка для обратной свзяи">-->
                     </div>
                 </div>
             </section>
