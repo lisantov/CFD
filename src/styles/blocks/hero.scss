@@ -1,6 +1,52 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
+@keyframes background1 {
+  0% {
+    left: 0;
+    bottom: -125px;
+  }
+  25% {
+    left: -50px;
+    bottom: -50px;
+  }
+  50% {
+    left: 75px;
+    bottom: 0px;
+  }
+  75% {
+    left: 150px;
+    bottom: -75px;
+  }
+  100% {
+    left: 0;
+    bottom: -125px;
+  }
+}
+
+@keyframes background2 {
+  0% {
+    left: 0;
+    bottom: -125px;
+  }
+  25% {
+    left: 100px;
+    bottom: -75px;
+  }
+  50% {
+    left: 200px;
+    bottom: 25px;
+  }
+  75% {
+    left: 450px;
+    bottom: 50px;
+  }
+  100% {
+    left: 0;
+    bottom: -125px;
+  }
+}
+
 .hero {
   position: relative;
   display: grid;
@@ -14,8 +60,22 @@
     width: 500px;
     aspect-ratio: 1;
     border-radius: 100%;
-    background-image: radial-gradient($purple, $blue);
+    background-color: $blue;
     z-index: -3;
+    animation: background1 10s ease infinite;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -125px;
+    width: 300px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: $purple;
+    z-index: -3;
+    animation: background2 10s ease-in-out infinite;
   }
 
   &__content {
@@ -111,6 +171,14 @@
     padding: 40px 20px 0;
     grid-template-columns: 1fr;
     gap: 0;
+
+    &::before {
+      width: 300px;
+    }
+
+    &::after {
+      width: 200px;
+    }
 
     &__content {
       padding: 40px 36px 0 56px;
