@@ -8,6 +8,8 @@ import './animations/steps.js';
 import './animations/promo.js';
 import './animations/feedback.js';
 
+// попытки сделать поблочный скролл (работает, но посрдественно)
+
 // const main = document.querySelector('.main');
 // const header = document.querySelector('.header');
 // const footer = document.querySelector('.footer');

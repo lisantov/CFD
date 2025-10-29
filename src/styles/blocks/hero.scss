@@ -165,7 +165,7 @@
       aspect-ratio: 1;
       background-color: $blue;
       border-radius: 100%;
-      transition: 2s ease-in-out;
+      transition: 1.4s ease-in-out;
     }
 
     &::after {
@@ -178,7 +178,7 @@
       aspect-ratio: 1;
       background-color: $white;
       border-radius: 100%;
-      transition: 2s ease-in-out;
+      transition: 1.4s ease-in-out;
     }
 
     &--in::before {
