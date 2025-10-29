@@ -47,20 +47,6 @@
   }
 }
 
-@keyframes scale-out1 {
-  to {
-    scale: 0.8;
-    bottom: 30%;
-  }
-}
-
-@keyframes scale-out2 {
-  to {
-    scale: 0.8;
-    top: 25%;
-  }
-}
-
 .hero {
   position: relative;
   display: grid;
@@ -169,42 +155,46 @@
     align-items: center;
     width: 100%;
 
-    &--in::before {
-      animation: scale-out1 2s reverse ease forwards;
-    }
-
-    &--in::after {
-      animation: scale-out2 2s reverse ease forwards;
-    }
-
-    &--out::before {
-      animation: scale-out1 2s ease forwards;
-    }
-
-    &--out::after {
-      animation: scale-out2 2s ease forwards;
-    }
-
     &::before {
       content: "";
       position: absolute;
       left: 0;
-      bottom: 20%;
+      bottom: 0;
+      transform: translateY(-50%) scale(1);
       width: 45%;
       aspect-ratio: 1;
       background-color: $blue;
       border-radius: 100%;
+      transition: 2s ease-in-out;
     }
 
     &::after {
       content: "";
       position: absolute;
       width: 70%;
-      left: 28%;
-      top: 15%;
+      left: 0;
+      top: 0;
+      transform: translateX(40%) translateY(20%) scale(1);
       aspect-ratio: 1;
       background-color: $white;
       border-radius: 100%;
+      transition: 2s ease-in-out;
+    }
+
+    &--in::before {
+      transform: translateY(-50%) scale(1);
+    }
+
+    &--in::after {
+      transform: translateX(40%) translateY(20%) scale(1);
+    }
+
+    &--out::before {
+      transform: translateY(-100%) scale(0.8);
+    }
+
+    &--out::after {
+      transform: translateX(40%) translateY(40%) scale(0.8);
     }
 
     &-image {
