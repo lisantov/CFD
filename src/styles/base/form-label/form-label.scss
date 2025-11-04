@@ -14,6 +14,10 @@
   cursor: text;
   transition: 0.25s ease-in-out;
 
+  & label {
+    width: 100%;
+  }
+
   &:hover {
     box-shadow: 0 8px 20px #5E54A040;
   }

@@ -77,10 +77,12 @@
                     <div class="hero__intro">
                         <h2 class="hero__title">Высокий уровень вовлечения представителей</h2>
                         <form class="hero__form">
-                            <label class="hero__form-label form-label">
-                                <input class="hero__form-input form-input" type="email" placeholder="Введите свой e-mail" required>
+                            <div class="hero__form-label form-label">
+                                <label>
+                                    <input class="hero__form-input form-input" type="email" placeholder="Введите свой e-mail" required>
+                                </label>
                                 <button type="submit" class="hero__form-button main-button">Отправить</button>
-                            </label>
+                            </div>
                             <span class="hero__form-span form-span">
                                 Нажимая на кнопку вы соглашаетесь на обработку <a class="hero__form--link form-span--link" href="#">персональных данных</a>
                             </span>
@@ -412,10 +414,12 @@
                 <div class="promo__content">
                     <h2 class="promo__content-title">Получите самую выгодную цену на планете</h2>
                     <form class="promo__content-form">
-                        <label class="promo__form-div form-label">
-                            <input class="promo__form-input form-input" type="email" placeholder="Введите свой e-mail" required>
+                        <div class="promo__form-div form-label">
+                            <label>
+                                <input class="promo__form-input form-input" type="email" placeholder="Введите свой e-mail" required>
+                            </label>
                             <button class="promo__form-button main-button main-button-primary">Отправить</button>
-                        </label>
+                        </div>
                         <span class="promo__form-span form-span">
                             Нажимая на кнопку вы соглашаетесь на обработку <a class="promo__form-span--link form-span--link" href="#">персональных данных</a>
                         </span>
@@ -478,37 +482,45 @@
                         <p class="feedback__content-description">Поговорите с одним из наших сотрудников, чтобы узнать, сколько мы можем получить для вас целевой аудитории за месяц с минимальными усилиями с вашей стороны</p>
                         <form class="feedback__content-form">
                             <div class="feedback__content-inputs">
-                                <label class="feedback__container-label form-label">
-                                    <input
-                                            type="email"
-                                            class="feedback__content-input form-input"
-                                            placeholder="Введите свой e-mail"
-                                            required
-                                    >
-                                </label>
-                                <label class="feedback__container-label form-label">
-                                    <input
-                                            type="tel"
-                                            class="feedback__content-input form-input"
-                                            placeholder="Номер мобильного телефона"
-                                            required
-                                    >
-                                </label>
-                                <label class="feedback__container-label form-label">
-                                    <input
-                                            type="text"
-                                            class="feedback__content-input form-input"
-                                            placeholder="Никнейм в Instagram"
-                                            required
-                                    >
-                                </label>
-                                <label class="feedback__container-label form-label">
-                                    <textarea
-                                            rows="2"
-                                            class="feedback__content-textarea form-input"
-                                            placeholder="Что вы бы хотели спросить о росте в Instagram"
-                                    ></textarea>
-                                </label>
+                                <div class="feedback__container-label form-label">
+                                    <label>
+                                        <input
+                                                type="email"
+                                                class="feedback__content-input form-input"
+                                                placeholder="Введите свой e-mail"
+                                                required
+                                        >
+                                    </label>
+                                </div>
+                                <div class="feedback__container-label form-label">
+                                    <label>
+                                        <input
+                                                type="tel"
+                                                class="feedback__content-input form-input"
+                                                placeholder="Номер мобильного телефона"
+                                                required
+                                        >
+                                    </label>
+                                </div>
+                                <div class="feedback__container-label form-label">
+                                    <label>
+                                        <input
+                                                type="text"
+                                                class="feedback__content-input form-input"
+                                                placeholder="Никнейм в Instagram"
+                                                required
+                                        >
+                                    </label>
+                                </div>
+                                <div class="feedback__container-label form-label">
+                                    <label>
+                                        <textarea
+                                                rows="2"
+                                                class="feedback__content-textarea form-input"
+                                                placeholder="Что вы бы хотели спросить о росте в Instagram"
+                                        ></textarea>
+                                    </label>
+                                </div>
                             </div>
                             <div class="feedback__content-submit">
                                 <button class="feedback__content-button main-button main-button-primary">Отправить заявку</button>
