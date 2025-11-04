@@ -1,0 +1,38 @@
+@use "../../mixins" as *;
+@use "../../variables" as *;
+
+.form-input {
+  @include desktop-text(body);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  background-color: transparent;
+  padding: 16px 0;
+  caret-color: $hover-color;
+  transition: 0.25s ease-in-out;
+
+  &:hover {
+    color: $hover-color;
+  }
+
+  &:hover::placeholder {
+    color: $hover-color;
+  }
+
+  &:focus {
+    outline: none;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .form-input {
+    @include mobile-text(body);
+  }  
+}

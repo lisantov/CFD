@@ -1,0 +1,98 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+
+.footer {
+  width: 100%;
+  padding: 24px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 24px 24px;
+  background-color: $blue;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+
+    &-title {
+      @include desktop-text(body);
+      color: $white;
+      text-decoration: none;
+    }
+
+    &-text {
+      @include desktop-text(table);
+      color: $light-grey;
+      max-width: 200px;
+    }
+  }
+
+  &__up {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-decoration: none;
+    gap: 8px;
+    cursor: pointer;
+    color: $white;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+      color: $light-grey;
+    }
+
+    &:hover &-arrow {
+      height: 21px;
+    }
+
+    &:hover &-arrow use {
+      fill: $light-grey;
+      transform: scaleY(1.1);
+    }
+
+    &-text {
+      @include desktop-text(body);
+
+      &-mobile {
+        display: none;
+      }
+    }
+
+    &-arrow {
+      height: 18px;
+      width: 16px;
+      transition: 0.25s ease-in-out;
+
+      & use {
+        fill: $white;
+        transition: 0.25s ease-in-out;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 16px 20px;
+
+    &__info-title {
+      @include mobile-text(body);
+    }
+    
+    &__info-text {
+      @include mobile-text(table);
+    }
+
+    &__up-text{
+      @include mobile-text(body);
+      display: none;
+
+      &-mobile {
+        display: block;
+      }
+    }
+  }
+}

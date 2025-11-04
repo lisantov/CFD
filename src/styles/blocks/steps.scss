@@ -1,0 +1,317 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+@keyframes steps1 {
+  0% {
+    right: 0;
+    top: -125px;
+  }
+  25% {
+    right: -50px;
+    top: -50px;
+  }
+  50% {
+    right: 75px;
+    top: 0;
+  }
+  75% {
+    right: 150px;
+    top: -75px;
+  }
+  100% {
+    right: 0;
+    top: -125px;
+  }
+}
+
+@keyframes steps2 {
+  0% {
+    left: 0;
+    bottom: -125px;
+  }
+  25% {
+    left: 100px;
+    bottom: -75px;
+  }
+  50% {
+    left: 200px;
+    bottom: 25px;
+  }
+  75% {
+    left: 450px;
+    bottom: 50px;
+  }
+  100% {
+    left: 0;
+    bottom: -125px;
+  }
+}
+
+@keyframes scale-in1 {
+  from {
+    scale: 0.7;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes scale-in2 {
+  from {
+    scale: 0.95;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+.steps {
+  position: relative;
+  padding: 80px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+  }
+
+  &::before {
+    width: 400px;
+    top: -200px;
+    right: 0;
+    background-image: radial-gradient($purple 50%, $blue 50%);
+    z-index: -3;
+    animation: steps1 10s ease infinite;
+  }
+
+  &::after {
+    width: 300px;
+    bottom: -150px;
+    left: -150px;
+    background-color: $pink;
+    z-index: -3;
+    animation: steps2 7s ease infinite;
+  }
+
+  &__content-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  &__cover {
+    position: relative;
+    width: 100%;
+    max-width: 630px;
+
+    &-image {
+      width: 100%;
+    }
+
+    &--animation &-image {
+      animation: scale-in2 2s forwards ease;
+    }
+
+    &--animation::after {
+      animation: scale-in1 2s forwards ease;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 50px;
+      width: 300px;
+      aspect-ratio: 1;
+      border-radius: 100%;
+      background-color: $pink;
+      z-index: -1;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 70px;
+    overflow: hidden;
+
+    &-slider {
+      position: relative;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 100%);
+      transition: 0.5s ease-in-out;
+    }
+
+    &-tab {
+      width: 100%;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &-text {
+      @include desktop-text(body);
+      color: $white;
+      cursor: pointer;
+      transition: 0.25s ease-in-out;
+
+      &:hover {
+        color: $hover-color;
+      }
+
+      &:active {
+        color: $inactive-color;
+      }
+
+      &--active {
+        @include desktop-text(span);
+        color: $blue;
+      }
+    }
+
+    &-separator {
+      width: 24px;
+      height: 1px;
+      background-color: $white;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    &-slogan {
+      @include desktop-text(headline);
+      color: $blue;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    &-text {
+      @include desktop-text(body);
+      color: $grey;
+    }
+  }
+
+  &__button {
+    width: max-content;
+    height: max-content;
+  }
+}
+
+@media (max-width: 1200px) {
+  .steps {
+    gap: 24px;
+
+    &::before {
+      width: 300px;
+    }
+
+    &::after {
+      width: 250px;
+    }
+
+
+    &__content-container {
+      grid-template-columns: 100%;
+      justify-items: center;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .steps {
+    padding: 40px 20px;
+
+    &__content-tab {
+      gap: 40px;
+    }
+
+    &__cover::after {
+      width: 40%;
+    }
+
+    &::after {
+      bottom: 10%;
+    }
+
+    &__text-container {
+      gap: 24px;
+    }
+
+    &__header {
+      gap: 4px;      
+
+      &-text {
+        @include mobile-text(body);
+        white-space: nowrap;
+      }
+
+      &-separator {
+        width: 16px;
+      }
+    }
+
+    &__body {
+      gap: 16px;
+
+      &__title-container {
+        gap: 8px;
+      }
+
+      &-slogan {
+        @include mobile-text(headline);
+      }
+
+      &-content {
+        gap: 8px
+      }
+
+      &-content-text {
+        @include mobile-text(body);
+      }
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+}

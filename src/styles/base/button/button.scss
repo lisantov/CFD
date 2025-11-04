@@ -1,0 +1,49 @@
+@use "../../mixins" as *;
+@use "../../variables" as *;
+
+.main-button {
+  @include desktop-text(span);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: $white;
+  color: $blue;
+  transition: 0.25s ease-in-out;
+
+  &:hover {
+    padding: 10px 24px 14px;
+    color: $hover-color;
+    box-shadow: 0 7px 15px rgba($hover-color, 0.25);
+  }
+
+  &:active {
+    color: $inactive-color;
+    box-shadow: 0 8px 24px rgba($inactive-color, 0.10);
+  }
+
+  &-primary {
+    background-color: $blue;
+    color: $white;
+
+    &:hover {
+      color: $white;
+      background-color: $hover-color;
+    }
+
+    &:active {
+      color: $white;
+      background-color: $inactive-color;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .main-button {
+    @include mobile-text(span);
+    padding: 10px 24px;
+  }
+}
