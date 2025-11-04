@@ -176,6 +176,10 @@
       &--success {
         text-align: center;
       }
+
+      &--hidden {
+        display: none;
+      }
     }
 
     &-stars {

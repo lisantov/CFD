@@ -18,11 +18,8 @@ const structurizeReviews = () => {
         reviewClasses.forEach((className) => card.classList.remove(className));
     });
     structureButton.remove();
-    const structuredText = document.createElement('p');
-    structuredText.classList.add('reviews__card-text');
-    structuredText.classList.add('reviews__card-text--success');
-    structuredText.textContent = 'Котики структурированы!';
-    reviewsContainer.appendChild(structuredText);
+    const structuredText = document.querySelector('.reviews__card-text--success');
+    structuredText.classList.remove('reviews__card-text--hidden');
 };
 
 reviewsCards.forEach((card) => card.addEventListener('click', reOrderReviews));
