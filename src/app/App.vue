@@ -2,18 +2,13 @@
 </script>
 
 <template>
-  <div class="wrap">
-    <h1 class="title">Lucker news</h1>
-    <main class="main">
+  <div class="flex flex-col items-center justify-items-start gap-16 w-full p-12 max-w-5xl">
+    <h1 class="text-6xl text-amber-500">Lucker news</h1>
+    <main class="flex items-center justify-items-center w-full">
       <RouterView />
     </main>
   </div>
 </template>
 
 <style scoped>
-* {
-  margin: 0;
-  bottom: 0;
-  box-sizing: border-box;
-}
 </style>
