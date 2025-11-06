@@ -1,4 +1,12 @@
 <script setup lang="ts">
+  import { useStoriesStore } from "@/stores/stories.ts";
+
+  const store = useStoriesStore();
+
+  store.pullNewStories();
+  setTimeout(() => {
+    store.pullNewStories();
+  }, 60000);
 </script>
 
 <template>
