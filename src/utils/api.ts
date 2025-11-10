@@ -1,7 +1,6 @@
 import type {Story} from "@/utils/types.ts";
 
 const baseUrl = import.meta.env.VITE_HOST_URL;
-console.log("baseUrl", baseUrl);
 
 const checkResponse = (res: Response) => {
   if (res.ok)
