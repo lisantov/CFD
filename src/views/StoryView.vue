@@ -15,7 +15,8 @@
 </script>
 
 <template>
-  <div class="flex justify-center items-start w-full">
+  <div class="flex flex-col justify-start items-center w-full gap-4">
+    <RouterLink to="/" class="link text-lg">< На главную</RouterLink>
     <StoryPostComponent v-if="store.storyObject" :story="store.storyObject">
       <div v-if="!store.comments || store.isCommentsLoading" class="flex justify-center items-center w-full h-24">
         <PreloaderComponent />
@@ -28,5 +29,30 @@
 </template>
 
 <style scoped>
+.link {
+  position: relative;
+  color: cornflowerblue;
+  transition: 0.3s ease-in-out;
+  align-self: flex-start;
+}
 
+.link::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 0;
+  height: 1px;
+  background: cornflowerblue;
+  transition: 0.3s ease-in-out;
+}
+
+.link:hover {
+  transform: translateY(-2px);
+  color: #2f599a;
+}
+
+.link:hover::before {
+  width: 100%;
+  background-color: #2f599a;
+}
 </style>

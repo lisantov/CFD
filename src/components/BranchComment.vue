@@ -34,14 +34,14 @@ const getNestedComments = async (ids: number[]) => {
 
 <template>
   <div
-    v-if="!props.comment.dead"
+    v-if="!props.comment.dead && !props.comment.deleted"
     class="flex justify-start items-stretch rounded-2xl bg-blue-50 p-2"
     :style="props.level ? { paddingLeft: '10px', borderLeft: '2px solid #b4cfff' } : {}"
   >
     <div class="flex flex-col gap-6 w-full">
       <div class="flex flex-col justify-center gap-1">
         <h3 class="text-base opacity-50">{{ props.comment.by }}</h3>
-        <p class="comment-content text-lg" v-html="props.comment.text"></p>
+        <div class="comment-content text-lg" v-html="props.comment.text"></div>
       </div>
       <p class="text-xs">{{ new Date(props.comment.time * 1000).toDateString() }}</p>
       <div class="flex flex-col justify-center gap-4 w-full" v-if="hasNestedCommemts">
@@ -53,7 +53,7 @@ const getNestedComments = async (ids: number[]) => {
         </div>
         <ul v-else-if="isExpanded" class="flex flex-col gap-6">
           <li v-for="com in nestedComments" :key="com.id">
-            <BranchComment v-if="!props.comment.dead" :comment="com" :expand="false" :level="props.level + 1" />
+            <BranchComment v-if="!props.comment.dead && !props.comment.deleted" :comment="com" :expand="false" :level="props.level + 1" />
           </li>
         </ul>
       </div>
@@ -62,15 +62,6 @@ const getNestedComments = async (ids: number[]) => {
 </template>
 
 <style scoped>
-.comment-content {
-  font-size: 18px;
-}
-
-.comment-content a {
-  text-decoration: underline;
-  color: cornflowerblue;
-}
-
 .expand {
   padding: 2px 12px;
   border: 1px solid cornflowerblue;

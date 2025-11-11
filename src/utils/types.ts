@@ -17,4 +17,5 @@ export interface Comment {
   text: string,
   time: number,
   dead?: boolean,
+  deleted?: boolean,
 }

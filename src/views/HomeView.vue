@@ -7,8 +7,8 @@
 </script>
 
 <template>
-  <div v-if="!store.isLoading && store.isInit"  class="stories">
-    <ul class="grid grid-cols-2 gap-2 w-full">
+  <div v-if="!store.isLoading && store.isInit"  class="stories w-full">
+    <ul class="main-grid grid grid-cols-2 gap-2 w-full">
       <li v-for="story in store.stories" :key="story.id">
         <StoryCardComponent :story="story" />
       </li>
@@ -49,5 +49,11 @@
   .stories__load:hover {
     background-color: cornflowerblue;
     color: white;
+  }
+
+  @media (max-width: 768px) {
+    .main-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
