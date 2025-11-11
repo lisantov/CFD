@@ -13,6 +13,6 @@ const request = async <T>(endpoint: string, options?: Object): Promise<T> => {
     .then(checkResponse);
 }
 
-export const getNewStories = () => request<number[]>(`newstories.json?print=pretty`);
-export const getStory = (id: number) => request<Story>(`item/${id}.json?print=pretty`);
-export const getComment = (id: number) => request<Comment>(`item/${id}.json?print=pretty`);
+export const getNewStories = () => request<number[]>(`topstories.json`);
+export const getStory = (id: number) => request<Story>(`item/${id}.json`);
+export const getComment = (id: number) => request<Comment>(`item/${id}.json`);

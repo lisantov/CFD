@@ -4,10 +4,10 @@
 
 <template>
   <div class="grid grid-cols-2 grid-rows-2 gap-1.5 size-8">
-    <div class="wobble size-3 rounded-full bg-amber-300"></div>
-    <div class="wobble size-3 rounded-full bg-amber-400"></div>
-    <div class="wobble size-3 rounded-full bg-amber-500"></div>
-    <div class="wobble size-3 rounded-full bg-amber-600"></div>
+    <div class="wobble size-3 rounded-full"></div>
+    <div class="wobble size-3 rounded-full"></div>
+    <div class="wobble size-3 rounded-full"></div>
+    <div class="wobble size-3 rounded-full"></div>
   </div>
 </template>
 
@@ -35,15 +35,22 @@
   }
 
   .wobble {
+    background: cornflowerblue;
     animation: scaleWobble 1s infinite linear;
   }
+
   .wobble:nth-child(2) {
+    background: #3975ea;
     animation-delay: 0.25s;
   }
+
   .wobble:nth-child(3) {
+    background: #2153b8;
     animation-delay: 0.5s;
   }
+
   .wobble:nth-child(4) {
+    background: #0d2f71;
     animation-delay: 0.75s;
   }
 </style>

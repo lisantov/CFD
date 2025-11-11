@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { useStoriesStore } from "@/stores/stories.ts";
-  import { computed, onMounted, onUnmounted, ref } from 'vue'
   import StoryCardComponent from "@/components/StoryCardComponent.vue";
   import PreloaderComponent from "@/components/PreloaderComponent.vue";
 
@@ -10,12 +9,12 @@
 <template>
   <div v-if="!store.isLoading && store.isInit"  class="stories">
     <ul class="grid grid-cols-2 gap-2 w-full">
-      <li v-for="story in store.stories">
+      <li v-for="story in store.stories" :key="story.id">
         <StoryCardComponent :story="story" />
       </li>
     </ul>
     <div class="stories__load-container">
-      <button v-if="!store.isNewLoading" @click="store.loadMoreStories()" class="stories__load w-full border-amber-500">
+      <button v-if="!store.isNewLoading" @click="store.loadMoreStories()" class="stories__load w-full">
         Показать ещё
       </button>
       <PreloaderComponent v-else />
@@ -40,14 +39,15 @@
     border-radius: 12px;
     border-width: 1px;
     border-style: solid;
-    background-color: white;
+    border-color: cornflowerblue;
+    background-color: transparent;
     color: black;
     cursor: pointer;
     transition: 0.25s ease;
   }
 
   .stories__load:hover {
-    background-color: #ffa200;
+    background-color: cornflowerblue;
     color: white;
   }
 </style>

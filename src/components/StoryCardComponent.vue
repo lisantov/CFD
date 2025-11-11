@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="story flex flex-col justify-between gap-6 w-full h-full border-amber-500">
+  <div class="story flex flex-col justify-between gap-6 w-full h-full">
     <div>
       <a :href="props.story.url" target="_blank">
         <h2 class="text-1xl font-medium underline">{{ props.story.title }}</h2>
@@ -29,6 +29,23 @@
     border-radius: 12px;
     border-width: 1px;
     border-style: solid;
+    border-color: cornflowerblue;
+    transition: 0.3s ease;
+  }
+
+  .story:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px 0 #0d2f714D;
+    background-color: cornflowerblue;
+    color: white;
+  }
+
+  .story:hover .link {
+    color: white;
+  }
+
+  .story:hover .link:hover::before {
+    background-color: white;
   }
 
   .story__author {
@@ -38,8 +55,8 @@
 
   .link {
     position: relative;
-    color: #fe9a00;
-    transition: color, transform 0.3s ease-in-out;
+    color: #2f599a;
+    transition: 0.3s ease-in-out;
   }
 
   .link::before {
@@ -48,17 +65,17 @@
     top: 100%;
     width: 0;
     height: 1px;
-    background: #fe9a00;
+    background: #2f599a;
     transition: 0.3s ease-in-out;
   }
 
   .link:hover {
     transform: translateY(-2px);
-    color: #b86310;
+    color: #2f599a;
   }
 
   .link:hover::before {
     width: 100%;
-    background: #b86310;
+    background: #2f599a;
   }
 </style>
