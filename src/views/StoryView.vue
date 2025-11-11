@@ -7,6 +7,8 @@
   const props = defineProps<{id: number}>();
   const store = useStoryStore();
 
+  store.clearStore();
+
   store.setStoryId(props.id);
   store.pullStory()
     .then(() => {
@@ -16,12 +18,12 @@
 
 <template>
   <div class="flex flex-col justify-start items-center w-full gap-4">
-    <RouterLink to="/" class="link text-lg">< На главную</RouterLink>
+    <RouterLink to="/" class="link text-lg">&#9668; На главную</RouterLink>
     <StoryPostComponent v-if="store.storyObject" :story="store.storyObject">
-      <div v-if="!store.comments || store.isCommentsLoading" class="flex justify-center items-center w-full h-24">
+      <div v-if="!store.comments && store.isCommentsLoading" class="flex justify-center items-center w-full h-24">
         <PreloaderComponent />
       </div>
-      <CommentsComponent v-else :comments="store.comments" />
+      <CommentsComponent v-else-if="store.comments" :comments="store.comments" />
     </StoryPostComponent>
     <PreloaderComponent v-else-if="store.isLoading" />
     <p v-else>Ошибка</p>

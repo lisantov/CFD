@@ -22,15 +22,25 @@ export const useStoryStore = defineStore('story', () => {
     }
   }
 
+  const clearStore = () => {
+    storyId.value = undefined;
+    isLoading.value = false;
+    isCommentsLoading.value = false;
+    storyObject.value = undefined;
+    comments.value = undefined;
+  }
+
   const pullComments = async () => {
     if (!isLoading.value) {
       isCommentsLoading.value = true;
       if (storyObject.value && storyObject.value.kids) {
         comments.value = await Promise.all(storyObject.value.kids.map((c) => getComment(c)))
-          .then((d) => {
+          .finally(() => {
             isCommentsLoading.value = false;
-            return d;
           })
+      }
+      else {
+        isCommentsLoading.value = false;
       }
     }
   }
@@ -39,5 +49,5 @@ export const useStoryStore = defineStore('story', () => {
     storyId.value = id;
   }
 
-  return { storyId, isLoading, isCommentsLoading, storyObject, comments, pullStory, pullComments, setStoryId };
+  return { storyId, isLoading, isCommentsLoading, storyObject, comments, pullStory, pullComments, setStoryId, clearStore };
 })
