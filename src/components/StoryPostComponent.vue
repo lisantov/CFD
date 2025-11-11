@@ -11,7 +11,7 @@
   <div class="story flex flex-col justify-between w-full h-full border-amber-500">
     <div class="title">
       <a :href="props.story.url" target="_blank">
-        <h2 class="text-1xl font-medium underline text-white">{{ props.story.title }}</h2>
+        <h2 class="text-2xl font-medium underline text-white">{{ props.story.title }}</h2>
       </a>
       <p class="story__author">by {{ props.story.by }}</p>
     </div>

@@ -1,4 +1,4 @@
-import type {Story} from "@/utils/types.ts";
+import type { Comment, Story } from '@/utils/types.ts'
 
 const baseUrl = import.meta.env.VITE_HOST_URL;
 

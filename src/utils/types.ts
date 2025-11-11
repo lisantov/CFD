@@ -16,4 +16,5 @@ export interface Comment {
   parent: number,
   text: string,
   time: number,
+  dead?: boolean,
 }
