@@ -36,7 +36,6 @@ const getNestedComments = async (ids: number[]) => {
   <div
     v-if="!props.comment.dead && !props.comment.deleted"
     class="flex justify-start items-stretch rounded-2xl bg-blue-50 p-2"
-    :style="props.level ? { paddingLeft: '10px', borderLeft: '2px solid #b4cfff' } : {}"
   >
     <div class="flex flex-col gap-6 w-full">
       <div class="flex flex-col justify-center gap-1">
@@ -51,7 +50,11 @@ const getNestedComments = async (ids: number[]) => {
         <div class="flex justify-center items-center w-full h-24" v-if="isNestedLoading" >
           <PreloaderComponent />
         </div>
-        <ul v-else-if="isExpanded" class="flex flex-col gap-6">
+        <ul
+          v-else-if="isExpanded"
+          class="flex flex-col gap-6 rounded-xl"
+          :style="{paddingLeft: '8px', borderLeft: '2px solid #b4cfff' }"
+        >
           <li v-for="com in nestedComments" :key="com.id">
             <BranchComment v-if="!props.comment.dead && !props.comment.deleted" :comment="com" :expand="false" :level="props.level + 1" />
           </li>
