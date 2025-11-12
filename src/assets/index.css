@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background-color: #eee;
+}
+
+#app {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
