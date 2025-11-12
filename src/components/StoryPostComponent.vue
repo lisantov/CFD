@@ -15,7 +15,8 @@
       </a>
       <p class="story__author">by {{ props.story.by }}</p>
     </div>
-    <div class="content flex flex-col justify-center gap-2">
+    <div class="content flex flex-col justify-center gap-4">
+      <p>{{ props.story.text }}</p>
       <div class="flex justify-between items-center">
         <p class="text-[0.75rem] font-normal">Комментарии: {{ props.story.descendants }}</p>
         <p class="text-[0.75rem] font-normal">Рейтинг: {{ props.story.score }}</p>

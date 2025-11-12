@@ -6,6 +6,7 @@ export interface Story {
   score: number,
   time: number,
   title: string,
+  text?: string,
   url: string
 }
 
