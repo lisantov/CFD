@@ -24,8 +24,7 @@
       <p class="task-description text-sm">{{ task.description }}</p>
     </div>
     <p class="task-date text-xs">{{ createdDate > 0 ? `${createdDate}д назад` : 'сегодня' }}</p>
-    <p class="task-deadline text-xs">{{ deadlineDate >= 0 ? `осталось ${deadlineDate}д` : `просрочена на ${deadlineDate}д`
-      }}</p>
+    <p :class="`task-deadline text-xs ${deadlineDate <= 3 ? 'danger' : ''}`">{{ deadlineDate >= 0 ? `осталось ${deadlineDate}д` : `просрочена на ${deadlineDate}д`}}</p>
   </div>
 </template>
 
@@ -57,6 +56,10 @@
     position: absolute;
     right: 10px;
     bottom: 4px;
-    color: #ff5959;
+    color: #92a1ff;
+  }
+
+  .task-deadline.danger {
+    color: #ff5b59;
   }
 </style>
