@@ -7,7 +7,7 @@ interface ModalWidgetProps {
 }
 
 const props = defineProps<ModalWidgetProps>();
-const store = useModalStore();
+const modalStore = useModalStore();
 const modalRef = ref<HTMLDivElement | null>(null);
 const isVisible = computed(() => props.visible);
 
@@ -16,7 +16,7 @@ const closeModal = () => {
     modalRef.value.classList.add('out');
   }
   setTimeout(() => {
-    store.closeModal();
+    modalStore.closeModal();
     if (modalRef.value) modalRef.value.classList.remove('out')
   }, 300)
 }
@@ -40,8 +40,12 @@ onUnmounted(() => {
     class="modal-overlay flex justify-center items-center"
     @click.self="closeModal"
   >
-    <div class="modal-content">
-      <slot></slot>
+    <div class="modal-content" @click.stop>
+      <component
+        :is="modalStore.modalComponent"
+        @submit="closeModal"
+        v-bind="modalStore.modalProps"
+      />
       <button class="modal-close flex justify-center items-center" @click="closeModal"></button>
     </div>
   </div>

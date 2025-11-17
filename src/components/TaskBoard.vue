@@ -3,6 +3,8 @@
   import { computed } from 'vue'
   import { useTaskStore } from '@/stores/TaskStore.ts'
   import { useModalStore } from '@/stores/ModalStore.ts'
+  import TaskForm from '@/components/TaskForm.vue'
+  import TaskCard from '@/components/TaskCard.vue'
 
   interface TaskBoardProps {
     title: string;
@@ -15,10 +17,14 @@
   const taskStore = useTaskStore();
   const modalStore = useModalStore();
   const tasks = computed(() => taskStore.tasks.filter((t: Task) => t.boardTag === props.boardTag));
+
+  const handleAddTask = () => {
+    modalStore.openModal(TaskForm, { boardTag: props.boardTag });
+  }
 </script>
 
 <template>
-  <article class="board flex flex-col justify-between">
+  <article class="board flex flex-col justify-between gap-4">
     <div class="flex flex-col justify-center items-center gap-0.5">
       <div class="flex justify-center items-center gap-1">
         <h2 class="board-title text-white text-xl">{{ title }}</h2>
@@ -26,7 +32,12 @@
       </div>
       <p class="board-description text-sm">{{ description }}</p>
     </div>
-    <button @click="modalStore.openModal" class="board-add" v-if="canAdd">
+    <ul class="w-full h-full overflow-auto flex flex-col gap-0.5">
+      <li v-for="task in tasks" :key="task.id">
+        <task-card :task="task" />
+      </li>
+    </ul>
+    <button @click="handleAddTask" class="board-add" v-if="canAdd">
       <span class="board-add-icon"></span>
       Добавить задачу
     </button>

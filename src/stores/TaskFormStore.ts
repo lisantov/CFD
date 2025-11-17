@@ -3,7 +3,15 @@ import { defineStore } from 'pinia'
 import type { Task } from '@/utils/type.ts'
 
 export const useTaskFormStore = defineStore('taskForm', () => {
-  const currentTask = ref<Task>();
+  const currentTask = ref<Task>({
+    id: 0,
+    name: '',
+    description: '',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    deadlineAt: new Date(),
+    boardTag: ''
+  });
 
   const setCurrentTaskField = (field: string) => (value: string) => {
     currentTask.value = Object.assign({
@@ -12,5 +20,17 @@ export const useTaskFormStore = defineStore('taskForm', () => {
     });
   }
 
-  return { currentTask, setCurrentTaskField };
+  const resetForm = () => {
+    currentTask.value = {
+      id: 0,
+      name: '',
+      description: '',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      deadlineAt: new Date(),
+      boardTag: ''
+    };
+  }
+
+  return { currentTask, setCurrentTaskField, resetForm };
 })
