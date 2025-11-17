@@ -2,6 +2,7 @@
   import type { Task } from '@/utils/type.ts'
   import { computed } from 'vue'
   import { useTaskStore } from '@/stores/TaskStore.ts'
+  import { useModalStore } from '@/stores/ModalStore.ts'
 
   interface TaskBoardProps {
     title: string;
@@ -12,6 +13,7 @@
 
   const props = defineProps<TaskBoardProps>();
   const taskStore = useTaskStore();
+  const modalStore = useModalStore();
   const tasks = computed(() => taskStore.tasks.filter((t: Task) => t.boardTag === props.boardTag));
 </script>
 
@@ -24,7 +26,7 @@
       </div>
       <p class="board-description text-sm">{{ description }}</p>
     </div>
-    <button class="board-add" v-if="canAdd">
+    <button @click="modalStore.openModal" class="board-add" v-if="canAdd">
       <span class="board-add-icon"></span>
       Добавить задачу
     </button>

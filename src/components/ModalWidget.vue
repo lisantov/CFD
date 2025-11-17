@@ -1,20 +1,22 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { useModalStore } from '@/stores/ModalStore.ts'
 
 interface ModalWidgetProps {
   visible?: boolean
 }
 
-const props = defineProps<ModalWidgetProps>()
-const modalRef = ref<HTMLDivElement | null>(null)
-const isVisible = ref(props.visible)
+const props = defineProps<ModalWidgetProps>();
+const store = useModalStore();
+const modalRef = ref<HTMLDivElement | null>(null);
+const isVisible = computed(() => props.visible);
 
 const closeModal = () => {
   if (modalRef.value) {
     modalRef.value.classList.add('out');
   }
   setTimeout(() => {
-    isVisible.value = false
+    store.closeModal();
     if (modalRef.value) modalRef.value.classList.remove('out')
   }, 300)
 }

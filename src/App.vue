@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import TaskBoard from '@/components/TaskBoard.vue'
 import ModalWidget from '@/components/ModalWidget.vue'
+import { useModalStore } from '@/stores/ModalStore.ts'
+
+const modalStore = useModalStore();
 </script>
 
 <template>
@@ -15,8 +18,8 @@ import ModalWidget from '@/components/ModalWidget.vue'
     <task-board title="Выполненные задачи" description="Успешно завершённые задачи" board-tag="done" />
   </main>
 
-  <modal-widget visible>
-    Ку
+  <modal-widget v-if="modalStore.isVisible" :visible="modalStore.isVisible">
+    {{ modalStore.modalContent }}
   </modal-widget>
 </template>
 
