@@ -32,7 +32,7 @@
       </div>
       <p class="board-description text-sm">{{ description }}</p>
     </div>
-    <ul class="w-full h-full overflow-auto flex flex-col gap-0.5">
+    <ul class="w-full h-full overflow-auto flex flex-col gap-2">
       <li v-for="task in tasks" :key="task.id">
         <task-card :task="task" />
       </li>
