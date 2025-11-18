@@ -35,7 +35,7 @@ const handleDrop = (e: Event) => {
   e.preventDefault();
   isDraggedOver.value = false;
   if (dndStore.lastDragged) {
-    if (dndStore.lastDragged.boardTag === 'test') {
+    if (dndStore.lastDragged.boardTag === 'test' && props.boardTag === 'process') {
       modalStore.openLockedModal(CommentForm, { task: dndStore.lastDragged })
     }
     taskStore.moveTask(dndStore.lastDragged.id, props.boardTag);
