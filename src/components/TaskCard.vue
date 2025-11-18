@@ -38,6 +38,11 @@
     <p class="task-date text-xs">{{ createdDate > 0 ? `${createdDate}д назад` : 'сегодня' }}</p>
     <ul class="flex gap-1 flex-wrap w-full">
       <li
+        class="roleTag tag flex items-center gap-0.5"
+      >
+        <p class="tagText text-xs">{{ task.role.name }}</p>
+      </li>
+      <li
         class="iconTag tag flex items-center gap-0.5"
         :style="{
           backgroundColor: `${task.size.color}4D`,
@@ -48,18 +53,13 @@
         <p class="tagText text-xs">{{ task.size.name }}</p>
       </li>
       <li
-        class="roleTag tag flex items-center gap-0.5"
-      >
-        <p class="tagText text-xs">{{ task.role.name }}</p>
-      </li>
-      <li
           class="tag flex items-center gap-0.5"
         :style="{
           backgroundColor: `${task.priority.color}9D`,
           boxShadow: `0 1px 10px ${task.priority.color}6D`
         }"
       >
-        <p class="tagText text-xs">{{ task.priority.name }}</p>
+        <p class="tagText text-xs">{{ task.priority.name }} приоритет</p>
       </li>
     </ul>
   </div>
@@ -108,8 +108,8 @@
   }
 
   .roleTag {
-    background-color: #484848;
-    box-shadow: 0 0 10px #ffffff1d;
+    background-color: #666dff;
+    box-shadow: 0 0 10px #666dff7d;
   }
 
   .iconTag {

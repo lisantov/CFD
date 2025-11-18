@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useTaskFormStore } from '@/stores/TaskFormStore.ts'
 import { onMounted, ref } from 'vue'
 import type { Task } from '@/utils/type.ts'
 import { useTaskStore } from '@/stores/TaskStore.ts'
 import { useSizeTagsStore } from '@/stores/SizeTagsStore.ts'
 import { useRolesStore } from '@/stores/RolesStore.ts'
 import { usePriorityTagsStore } from '@/stores/PriorityTagsStore.ts'
+import type { ValidationResult } from '@/utils/validation.ts'
 
 interface TaskFormProps {
   boardTag: string;
@@ -13,7 +13,6 @@ interface TaskFormProps {
 
 const props = defineProps<TaskFormProps>();
 
-const formStore = useTaskFormStore();
 const taskStore = useTaskStore();
 
 const sizeTagsStore = useSizeTagsStore();
@@ -27,10 +26,26 @@ onMounted(() => {
 })
 
 const formState = ref<Task>(Object.assign({
-    ...formStore.currentTask,
     boardTag: props.boardTag,
+    size: sizeTagsStore.tags[0],
+    priority: priorityTagsStore.tags[0],
+    role: rolesStore.roles[0],
   })
 );
+
+const formValidity = ref<Partial<Record<keyof Task, ValidationResult>>>({
+  name: {
+    valid: false,
+    message: "",
+  },
+  description: false,
+  deadlineAt: false,
+})
+
+const handleChange = (e: Event) => {
+  const target = e.target as HTMLInputElement;
+  if ()
+}
 
 const handleSubmit = (e: Event) => {
   e.preventDefault();
@@ -39,7 +54,6 @@ const handleSubmit = (e: Event) => {
   formState.value.updatedAt = new Date();
 
   taskStore.addTask(formState.value);
-  formStore.resetForm();
 }
 </script>
 
@@ -50,35 +64,52 @@ const handleSubmit = (e: Event) => {
         <span>Имя задачи</span>
         <input ref="firstInput" class="input" v-model="formState.name" type="text">
       </label>
+
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Описание задачи</span>
         <input class="input" v-model="formState.description" type="text">
       </label>
+
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Дедлайн задачи</span>
         <input class="input" v-model="formState.deadlineAt" type="date">
       </label>
+
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Объём задачи</span>
-        <select name="size" class="select">
+        <select name="size" class="select" v-model="formState.size">
           <option
             v-for="size in sizeTagsStore.tags"
             :key="size.id"
-            :value="size.name"
+            :value="size"
           >
             {{ size.name }}
           </option>
         </select>
       </label>
+
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Приоритет задачи</span>
-        <select name="priority" class="select">
+        <select name="priority" class="select" v-model="formState.priority">
           <option
-            v-for="size in sizeTagsStore.tags"
-            :key="size.id"
-            :value="size.name"
+            v-for="priority in priorityTagsStore.tags"
+            :key="priority.id"
+            :value="priority"
           >
-            {{ size.name }}
+            {{ priority.name }}
+          </option>
+        </select>
+      </label>
+
+      <label class="flex flex-col gap-0.5 justify-center relative">
+        <span>На какую роль задача</span>
+        <select name="role" class="select" v-model="formState.role">
+          <option
+            v-for="role in rolesStore.roles"
+            :key="role.id"
+            :value="role"
+          >
+            {{ role.name }}
           </option>
         </select>
       </label>

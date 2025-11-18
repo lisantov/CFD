@@ -8,7 +8,7 @@ export interface Task {
   boardTag: string;
   role: Role;
   size: SizeTag;
-  priority: PriorityTag
+  priority: PriorityTag;
   tags: Tag[];
 }
 
