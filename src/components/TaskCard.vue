@@ -62,6 +62,9 @@
         <p class="tagText text-xs">{{ task.priority.name }} приоритет</p>
       </li>
     </ul>
+    <button class="deleteButton">
+      <img class="w-full" src="/icons/trashCan.svg" alt="Кнопка удаления">
+    </button>
   </div>
 </template>
 
@@ -70,7 +73,7 @@
     position: relative;
     border: 1px solid #444;
     border-radius: 12px;
-    padding: 4px 8px 8px;
+    padding: 4px 40px 8px 8px;
     background: #2d2d2d;
   }
 
@@ -91,7 +94,7 @@
 
   .task-deadline {
     color: #92a1ff;
-    padding-bottom: 3px;
+    padding-bottom: 4px;
   }
 
   .task-deadline.warning {
@@ -124,5 +127,21 @@
 
   .icon {
     width: 24px;
+  }
+
+  .deleteButton {
+    position: absolute;
+    padding: 4px;
+    width: 32px;
+    bottom: 4px;
+    right: 8px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.25s ease-in-out;
+  }
+
+  .deleteButton:hover {
+    transform: translateY(-2px);
+    background-color: #4d4d4d;
   }
 </style>
