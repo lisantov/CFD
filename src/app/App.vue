@@ -18,7 +18,11 @@ const modalStore = useModalStore();
     <task-board title="Выполненные задачи" description="Успешно завершённые задачи" board-tag="done" />
   </main>
 
-  <modal-widget v-if="modalStore.isVisible" :visible="modalStore.isVisible" />
+  <modal-widget
+    v-if="modalStore.isVisible"
+    v-bind="modalStore.modalWindowProps"
+    :visible="modalStore.isVisible"
+  />
 </template>
 
 <style scoped>

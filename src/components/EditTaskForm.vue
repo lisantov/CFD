@@ -84,7 +84,7 @@ const handleSubmit = (e: Event) => {
         </select>
       </label>
     </div>
-    <button class="submit" type="submit">Создать</button>
+    <button class="submit" type="submit">Сохранить</button>
   </form>
   <p class="lastTime">Последнее редактирование: {{ updatedTime }}ч назад</p>
 </template>

@@ -15,7 +15,6 @@ export const useTaskStore = defineStore('tasks', () => {
   }
 
   const moveTask = (id: number, newTag: string) => {
-    console.log('dasd');
     tasks.value = tasks.value.map((task) => {
       if (task.id === id) task.boardTag = newTag;
       return task;
@@ -36,5 +35,12 @@ export const useTaskStore = defineStore('tasks', () => {
     })
   }
 
-  return { tasks, addTask, removeTask, moveTask, updateTask };
+  const addComment = (id: number, comment: string) => {
+    tasks.value = tasks.value.map(t => {
+      if (t.id === id) t.comment = comment;
+      return t;
+    })
+  }
+
+  return { tasks, addTask, removeTask, moveTask, updateTask, addComment };
 })

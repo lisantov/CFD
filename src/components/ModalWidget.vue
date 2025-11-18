@@ -4,6 +4,7 @@ import { useModalStore } from '@/stores/ModalStore.ts'
 
 interface ModalWidgetProps {
   visible?: boolean
+  notCloseable?: boolean
 }
 
 const props = defineProps<ModalWidgetProps>();
@@ -22,7 +23,7 @@ const closeModal = () => {
 }
 
 const handleKeyClose = (e: KeyboardEvent) => {
-  if (e.key === 'Escape') closeModal()
+  if (e.key === 'Escape' && !props.notCloseable) closeModal()
 }
 
 onMounted(() => {
@@ -38,7 +39,7 @@ onUnmounted(() => {
     v-if="isVisible"
     ref="modalRef"
     class="modal-overlay flex justify-center items-center"
-    @click.self="closeModal"
+    @click.self="() => {if (!props.notCloseable) closeModal()}"
   >
     <div class="modal-content" @click.stop>
       <component
@@ -46,7 +47,7 @@ onUnmounted(() => {
         @submit="closeModal"
         v-bind="modalStore.modalProps"
       />
-      <button class="modal-close flex justify-center items-center" @click="closeModal"></button>
+      <button v-if="!props.notCloseable" class="modal-close flex justify-center items-center" @click="closeModal"></button>
     </div>
   </div>
 </template>

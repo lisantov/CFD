@@ -25,7 +25,7 @@
  })
 
  const handleEditTask = () => {
-   modalStore.openModal(EditTaskForm, { task: actualTask })
+   modalStore.openModal(EditTaskForm, { task: actualTask });
  }
 </script>
 
@@ -80,6 +80,12 @@
       <button @click="() => store.removeTask(task.id)" class="button">
         <img class="w-full" src="/icons/trashCan.svg" alt="Кнопка удаления">
       </button>
+    </div>
+    <div class="comment-container" v-if="task.comment">
+      <h4 class="comment-title">Комментарий к исправлению:</h4>
+      <p class="comment">
+        {{ task.comment }}
+      </p>
     </div>
   </div>
 </template>
@@ -162,5 +168,19 @@
   .button:hover {
     transform: translateY(-1px);
     background-color: #4d4d4d;
+  }
+
+  .comment-container {
+    border-radius: 8px;
+    background-color: #333;
+    padding: 4px;
+  }
+
+  .comment-title {
+    color: #fff;
+  }
+
+  .comment {
+    color: #ccc;
   }
 </style>

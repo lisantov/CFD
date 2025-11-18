@@ -6,6 +6,7 @@ import { useModalStore } from '@/stores/ModalStore.ts'
 import TaskForm from '@/components/TaskForm.vue'
 import TaskCard from '@/components/TaskCard.vue'
 import { useDNDStore } from '@/stores/DragAndDropStore.ts'
+import CommentForm from '@/components/CommentForm.vue'
 
 interface TaskBoardProps {
   title: string
@@ -23,18 +24,41 @@ const tasks = computed(() => taskStore.tasks.filter((t: Task) => t.boardTag === 
 
 const handleDragover = (e: Event) => {
   if (dndStore.draggableTask && dndStore.draggableTask.boardTag !== props.boardTag) {
-    e.preventDefault()
-    isDraggedOver.value = true
+    if (allowedTags.value.includes(dndStore.draggableTask.boardTag)) {
+      e.preventDefault()
+      isDraggedOver.value = true
+    }
   }
 }
 
 const handleDrop = (e: Event) => {
-  e.preventDefault()
-  isDraggedOver.value = false
+  e.preventDefault();
+  isDraggedOver.value = false;
   if (dndStore.lastDragged) {
-    taskStore.moveTask(dndStore.lastDragged.id, props.boardTag)
+    if (dndStore.lastDragged.boardTag === 'test') {
+      modalStore.openLockedModal(CommentForm, { task: dndStore.lastDragged })
+    }
+    taskStore.moveTask(dndStore.lastDragged.id, props.boardTag);
   }
 }
+
+const allowedTags = computed(() => {
+  let tags: string[] = [];
+  switch (props.boardTag) {
+    case 'process':
+      tags = ['todo', 'test'];
+      break;
+
+    case 'test':
+      tags = ['process'];
+      break;
+
+    case 'done':
+      tags = ['test'];
+      break;
+  }
+  return tags;
+})
 
 const handleAddTask = () => {
   modalStore.openModal(TaskForm, { boardTag: props.boardTag })

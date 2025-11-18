@@ -6,6 +6,7 @@ export interface Task {
   updatedAt: Date;
   deadlineAt: Date;
   boardTag: string;
+  comment?: string;
   role: Role;
   size: SizeTag;
   priority: PriorityTag;
