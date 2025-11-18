@@ -1,11 +1,18 @@
 <script setup lang="ts">
  import type { Task } from '@/utils/type.ts'
  import { computed } from 'vue'
+ import { useTaskStore } from '@/stores/TaskStore.ts'
+ import { useModalStore } from '@/stores/ModalStore.ts'
+ import EditTaskForm from '@/components/EditTaskForm.vue'
  interface TaskCardProps {
    task: Task
  }
 
  const props = defineProps<TaskCardProps>();
+ const store = useTaskStore();
+ const modalStore = useModalStore();
+
+ const actualTask = computed(() => props.task);
 
  const createdDate = computed(() => {
    const difference = (Number(new Date()) - Number(props.task.createdAt));
@@ -16,6 +23,10 @@
    const difference = (Number(new Date(props.task.deadlineAt)) - Number(new Date()));
    return Math.floor(difference / (1000 * 60 * 60 * 24))
  })
+
+ const handleEditTask = () => {
+   modalStore.openModal(EditTaskForm, { task: actualTask })
+ }
 </script>
 
 <template>
@@ -23,13 +34,13 @@
     <div class="flex flex-col justify-center">
       <div class="flex gap-2 items-end">
         <h3 class="task-title text-lg">{{ task.name }}</h3>
-        <p :class="`task-deadline text-xs ${deadlineDate + 1 <= 3 ? deadlineDate + 1 < 1 ? 'danger' : 'warning' : ''}`">
+        <p :class="`task-deadline text-xs ${deadlineDate <= 3 ? deadlineDate <= 1 ? 'danger' : 'warning' : ''}`">
           {{
-            deadlineDate + 1 >= 0
-              ? deadlineDate + 1 === 1
-                ? `остался ${deadlineDate + 1}д`
-                : `осталось ${deadlineDate + 1}д`
-              : `просрочена на ${-(deadlineDate + 1)}д`
+            deadlineDate >= 0
+              ? deadlineDate === 1
+                ? `остался ${deadlineDate}д`
+                : `осталось ${deadlineDate}д`
+              : `просрочена на ${-(deadlineDate)}д`
           }}
         </p>
       </div>
@@ -62,9 +73,14 @@
         <p class="tagText text-xs">{{ task.priority.name }} приоритет</p>
       </li>
     </ul>
-    <button class="deleteButton">
-      <img class="w-full" src="/icons/trashCan.svg" alt="Кнопка удаления">
-    </button>
+    <div class="buttonContainer flex justify-center items-center gap-0.5">
+      <button @click="handleEditTask" class="button">
+        <img class="w-full" src="/icons/edit.svg" alt="Кнопка редактирования">
+      </button>
+      <button @click="() => store.removeTask(task.id)" class="button">
+        <img class="w-full" src="/icons/trashCan.svg" alt="Кнопка удаления">
+      </button>
+    </div>
   </div>
 </template>
 
@@ -73,7 +89,7 @@
     position: relative;
     border: 1px solid #444;
     border-radius: 12px;
-    padding: 4px 40px 8px 8px;
+    padding: 4px 72px 8px 8px;
     background: #2d2d2d;
   }
 
@@ -129,19 +145,22 @@
     width: 24px;
   }
 
-  .deleteButton {
+  .buttonContainer {
     position: absolute;
-    padding: 4px;
-    width: 32px;
     bottom: 4px;
     right: 8px;
+  }
+
+  .button {
+    padding: 4px;
+    width: 32px;
     cursor: pointer;
     border-radius: 8px;
     transition: 0.25s ease-in-out;
   }
 
-  .deleteButton:hover {
-    transform: translateY(-2px);
+  .button:hover {
+    transform: translateY(-1px);
     background-color: #4d4d4d;
   }
 </style>

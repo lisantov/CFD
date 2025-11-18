@@ -11,6 +11,7 @@ export const useTaskStore = defineStore('tasks', () => {
 
   const removeTask = (id: number) => {
     tasks.value = tasks.value.filter((task) => task.id !== id);
+    refreshIds();
   }
 
   const moveTask = (id: number, newTag: string) => {
@@ -20,5 +21,19 @@ export const useTaskStore = defineStore('tasks', () => {
     });
   }
 
-  return { tasks, addTask, removeTask, moveTask };
+  const updateTask = (task: Task) => {
+    tasks.value = tasks.value.map((t) => {
+      if (task.id === t.id) return task;
+      return t;
+    })
+  }
+
+  const refreshIds = () => {
+    tasks.value = tasks.value.map((t, i) => {
+      t.id = i;
+      return t;
+    })
+  }
+
+  return { tasks, addTask, removeTask, moveTask, updateTask };
 })

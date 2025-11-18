@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import type { Task } from '@/utils/type.ts'
 import { useTaskStore } from '@/stores/TaskStore.ts'
 import { useSizeTagsStore } from '@/stores/SizeTagsStore.ts'
 import { useRolesStore } from '@/stores/RolesStore.ts'
 import { usePriorityTagsStore } from '@/stores/PriorityTagsStore.ts'
 
-interface TaskFormProps {
-  boardTag: string
+interface EditTaskFormProps {
+  task: Task
 }
 
-const props = defineProps<TaskFormProps>()
+const props = defineProps<EditTaskFormProps>()
 
 const taskStore = useTaskStore()
 
@@ -24,22 +24,18 @@ onMounted(() => {
   if (firstInput.value) firstInput.value.focus()
 })
 
-const formState = ref<Task>(
-  Object.assign({
-    boardTag: props.boardTag,
-    size: sizeTagsStore.tags[0],
-    priority: priorityTagsStore.tags[0],
-    role: rolesStore.roles[0],
-  }),
-)
+const formState = ref<Task>(Object.assign({ ...props.task }));
+
+const updatedTime = computed(() => {
+  const difference = (Number(new Date()) - Number(new Date(props.task.updatedAt)));
+  return Math.floor((difference % (60 * 60 * 24)) / (60 * 60));
+})
+
 
 const handleSubmit = (e: Event) => {
   e.preventDefault();
-  formState.value.id = taskStore.tasks.length;
-  formState.value.createdAt = new Date();
   formState.value.updatedAt = new Date();
-
-  taskStore.addTask(formState.value);
+  taskStore.updateTask(formState.value);
 }
 </script>
 
@@ -48,33 +44,17 @@ const handleSubmit = (e: Event) => {
     <div class="flex flex-col justify-center gap-2">
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Имя задачи</span>
-        <input
-          ref="firstInput"
-          class="input"
-          v-model="formState.name"
-          type="text"
-          required
-        />
+        <input ref="firstInput" class="input" v-model="formState.name" type="text" required />
       </label>
 
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Описание задачи</span>
-        <input
-          class="input"
-          v-model="formState.description"
-          type="text"
-          required
-        />
+        <input class="input" v-model="formState.description" type="text" required />
       </label>
 
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Дедлайн задачи</span>
-        <input
-          class="input"
-          v-model="formState.deadlineAt"
-          type="date"
-          required
-        />
+        <input class="input" v-model="formState.deadlineAt" type="date" required />
       </label>
 
       <label class="flex flex-col gap-0.5 justify-center relative">
@@ -106,9 +86,15 @@ const handleSubmit = (e: Event) => {
     </div>
     <button class="submit" type="submit">Создать</button>
   </form>
+  <p class="lastTime">Последнее редактирование: {{ updatedTime }}ч назад</p>
 </template>
 
 <style scoped>
+.lastTime {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
 .input {
   min-height: 35px;
   border: 1px solid #444;
