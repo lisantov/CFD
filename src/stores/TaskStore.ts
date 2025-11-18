@@ -15,8 +15,9 @@ export const useTaskStore = defineStore('tasks', () => {
   }
 
   const moveTask = (id: number, newTag: string) => {
+    console.log('dasd');
     tasks.value = tasks.value.map((task) => {
-      if (task.id !== id) task.boardTag = newTag;
+      if (task.id === id) task.boardTag = newTag;
       return task;
     });
   }

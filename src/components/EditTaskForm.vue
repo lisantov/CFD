@@ -24,7 +24,7 @@ onMounted(() => {
   if (firstInput.value) firstInput.value.focus()
 })
 
-const formState = ref<Task>(Object.assign({ ...props.task }));
+const formState = computed(() => Object.assign({ ...props.task }));
 
 const updatedTime = computed(() => {
   const difference = (Number(new Date()) - Number(new Date(props.task.updatedAt)));
