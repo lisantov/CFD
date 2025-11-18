@@ -36,7 +36,7 @@ const modalStore = useModalStore();
   }
 
   .main {
-    grid-template-columns: repeat(4, minmax(400px, 1fr));
+    grid-template-columns: repeat(4, 500px);
     padding: 120px 80px 40px;
     min-height: 95vh;
   }

@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { useTaskFormStore } from '@/stores/TaskFormStore.ts'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import type { Task } from '@/utils/type.ts'
 import { useTaskStore } from '@/stores/TaskStore.ts'
-import { useModalStore } from '@/stores/ModalStore.ts'
+import { useSizeTagsStore } from '@/stores/SizeTagsStore.ts'
+import { useRolesStore } from '@/stores/RolesStore.ts'
+import { usePriorityTagsStore } from '@/stores/PriorityTagsStore.ts'
 
 interface TaskFormProps {
   boardTag: string;
@@ -13,6 +15,16 @@ const props = defineProps<TaskFormProps>();
 
 const formStore = useTaskFormStore();
 const taskStore = useTaskStore();
+
+const sizeTagsStore = useSizeTagsStore();
+const rolesStore = useRolesStore();
+const priorityTagsStore = usePriorityTagsStore();
+
+const firstInput = ref<HTMLInputElement | null>(null);
+
+onMounted(() => {
+  if (firstInput.value) firstInput.value.focus();
+})
 
 const formState = ref<Task>(Object.assign({
     ...formStore.currentTask,
@@ -36,7 +48,7 @@ const handleSubmit = (e: Event) => {
     <div class="flex flex-col justify-center gap-2">
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Имя задачи</span>
-        <input class="input" v-model="formState.name" type="text">
+        <input ref="firstInput" class="input" v-model="formState.name" type="text">
       </label>
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Описание задачи</span>
@@ -45,6 +57,30 @@ const handleSubmit = (e: Event) => {
       <label class="flex flex-col gap-0.5 justify-center relative">
         <span>Дедлайн задачи</span>
         <input class="input" v-model="formState.deadlineAt" type="date">
+      </label>
+      <label class="flex flex-col gap-0.5 justify-center relative">
+        <span>Объём задачи</span>
+        <select name="size" class="select">
+          <option
+            v-for="size in sizeTagsStore.tags"
+            :key="size.id"
+            :value="size.name"
+          >
+            {{ size.name }}
+          </option>
+        </select>
+      </label>
+      <label class="flex flex-col gap-0.5 justify-center relative">
+        <span>Приоритет задачи</span>
+        <select name="priority" class="select">
+          <option
+            v-for="size in sizeTagsStore.tags"
+            :key="size.id"
+            :value="size.name"
+          >
+            {{ size.name }}
+          </option>
+        </select>
       </label>
     </div>
     <button class="submit" type="submit">
@@ -70,6 +106,21 @@ const handleSubmit = (e: Event) => {
 
   .input:hover {
     transform: translateY(-1px);
+    box-shadow: 0 0 12px 0 #ffffff2d;
+  }
+
+  .select {
+    min-height: 35px;
+    border: 1px solid #444;
+    border-radius: 12px;
+    background-color: #171717;
+    padding: 4px 12px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+  }
+
+  .select:hover {
     box-shadow: 0 0 12px 0 #ffffff2d;
   }
 
