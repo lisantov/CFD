@@ -30,60 +30,63 @@
 </script>
 
 <template>
-  <div class="task-card flex flex-col justify-center gap-2 w-full">
-    <div class="flex flex-col justify-center">
-      <div class="flex gap-2 items-end">
-        <h3 class="task-title text-lg">{{ task.name }}</h3>
-        <p :class="`task-deadline text-xs ${deadlineDate <= 3 ? deadlineDate <= 1 ? 'danger' : 'warning' : ''}`">
-          {{
-            deadlineDate >= 0
-              ? deadlineDate === 1
-                ? `остался ${deadlineDate}д`
-                : `осталось ${deadlineDate}д`
-              : `просрочена на ${-(deadlineDate)}д`
-          }}
-        </p>
+  <div class="task-card flex flex-col justify-center gap-4 w-full">
+    <div class="task-card-header flex flex-col justify-center gap-2 relative w-full">
+      <div class="flex flex-col justify-center">
+        <div class="flex gap-2 items-end">
+          <h3 class="task-title text-lg">{{ task.name }}</h3>
+          <p :class="`task-deadline text-xs ${deadlineDate <= 3 ? deadlineDate <= 1 ? 'danger' : 'warning' : ''}`">
+            {{
+              deadlineDate >= 0
+                ? deadlineDate === 1
+                  ? `остался ${deadlineDate}д`
+                  : `осталось ${deadlineDate}д`
+                : `просрочена на ${-(deadlineDate)}д`
+            }}
+          </p>
+        </div>
+        <p class="task-description text-sm">{{ task.description }}</p>
       </div>
-      <p class="task-description text-sm">{{ task.description }}</p>
-    </div>
-    <p class="task-date text-xs">{{ createdDate > 0 ? `${createdDate}д назад` : 'сегодня' }}</p>
-    <ul class="flex gap-1 flex-wrap w-full">
-      <li
-        class="roleTag tag flex items-center gap-0.5"
-      >
-        <p class="tagText text-xs">{{ task.role.name }}</p>
-      </li>
-      <li
-        class="iconTag tag flex items-center gap-0.5"
-        :style="{
+      <p class="task-date text-xs">{{ createdDate > 0 ? `${createdDate}д назад` : 'сегодня' }}</p>
+      <ul class="flex gap-1 flex-wrap w-full">
+        <li
+          class="roleTag tag flex items-center gap-0.5"
+        >
+          <p class="tagText text-xs">{{ task.role.name }}</p>
+        </li>
+        <li
+          class="iconTag tag flex items-center gap-0.5"
+          :style="{
           backgroundColor: `${task.size.color}4D`,
           boxShadow: `0 1px 10px ${task.size.color}4D`
         }"
-      >
-        <img class="icon" :src="task.size.iconUrl" :alt="task.size.name">
-        <p class="tagText text-xs">{{ task.size.name }}</p>
-      </li>
-      <li
+        >
+          <img class="icon" :src="task.size.iconUrl" :alt="task.size.name">
+          <p class="tagText text-xs">{{ task.size.name }}</p>
+        </li>
+        <li
           class="tag flex items-center gap-0.5"
-        :style="{
+          :style="{
           backgroundColor: `${task.priority.color}9D`,
           boxShadow: `0 1px 10px ${task.priority.color}6D`
         }"
-      >
-        <p class="tagText text-xs">{{ task.priority.name }} приоритет</p>
-      </li>
-    </ul>
-    <div class="buttonContainer flex justify-center items-center gap-0.5">
-      <button @click="handleEditTask" class="button">
-        <img class="w-full" src="/icons/edit.svg" alt="Кнопка редактирования">
-      </button>
-      <button @click="() => store.removeTask(task.id)" class="button">
-        <img class="w-full" src="/icons/trashCan.svg" alt="Кнопка удаления">
-      </button>
+        >
+          <p class="tagText text-xs">{{ task.priority.name }} приоритет</p>
+        </li>
+      </ul>
+      <div class="buttonContainer flex justify-center items-center gap-0.5">
+        <button @click="handleEditTask" class="button">
+          <img class="w-full" src="/icons/edit.svg" alt="Кнопка редактирования">
+        </button>
+        <button @click="() => store.removeTask(task.id)" class="button">
+          <img class="w-full" src="/icons/trashCan.svg" alt="Кнопка удаления">
+        </button>
+      </div>
     </div>
+
     <div class="comment-container" v-if="task.comment">
-      <h4 class="comment-title">Комментарий к исправлению:</h4>
-      <p class="comment">
+      <h4 class="comment-title text-sm">Комментарий к исправлению:</h4>
+      <p class="comment text-xs">
         {{ task.comment }}
       </p>
     </div>
@@ -95,8 +98,12 @@
     position: relative;
     border: 1px solid #444;
     border-radius: 12px;
-    padding: 4px 72px 8px 8px;
+    padding: 4px 8px 8px;
     background: #2d2d2d;
+  }
+
+  .task-card-header {
+    padding-right:80px;
   }
 
   .task-title {
