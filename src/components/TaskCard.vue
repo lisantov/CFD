@@ -1,0 +1,193 @@
+<script setup lang="ts">
+ import type { Task } from '@/utils/type.ts'
+ import { computed } from 'vue'
+ import { useTaskStore } from '@/stores/TaskStore.ts'
+ import { useModalStore } from '@/stores/ModalStore.ts'
+ import EditTaskForm from '@/components/EditTaskForm.vue'
+ interface TaskCardProps {
+   task: Task
+ }
+
+ const props = defineProps<TaskCardProps>();
+ const store = useTaskStore();
+ const modalStore = useModalStore();
+
+ const actualTask = computed(() => props.task);
+
+ const createdDate = computed(() => {
+   const difference = (Number(new Date()) - Number(props.task.createdAt));
+   return Math.floor(difference / (1000 * 60 * 60 * 24))
+ })
+
+ const deadlineDate = computed(() => {
+   const difference = (Number(new Date(props.task.deadlineAt)) - Number(new Date()));
+   return Math.floor(difference / (1000 * 60 * 60 * 24))
+ })
+
+ const handleEditTask = () => {
+   modalStore.openModal(EditTaskForm, { task: actualTask });
+ }
+</script>
+
+<template>
+  <div class="task-card flex flex-col justify-center gap-4 w-full">
+    <div class="task-card-header flex flex-col justify-center gap-2 relative w-full">
+      <div class="flex flex-col justify-center">
+        <div class="flex gap-2 items-end">
+          <h3 class="task-title text-lg">{{ task.name }}</h3>
+          <p :class="`task-deadline text-xs ${deadlineDate <= 3 ? deadlineDate <= 1 ? 'danger' : 'warning' : ''}`">
+            {{
+              deadlineDate >= 0
+                ? deadlineDate === 1
+                  ? `остался ${deadlineDate}д`
+                  : `осталось ${deadlineDate}д`
+                : `просрочена на ${-(deadlineDate)}д`
+            }}
+          </p>
+        </div>
+        <p class="task-description text-sm">{{ task.description }}</p>
+      </div>
+      <p class="task-date text-xs">{{ createdDate > 0 ? `${createdDate}д назад` : 'сегодня' }}</p>
+      <ul class="flex gap-1 flex-wrap w-full">
+        <li
+          class="roleTag tag flex items-center gap-0.5"
+        >
+          <p class="tagText text-xs">{{ task.role.name }}</p>
+        </li>
+        <li
+          class="iconTag tag flex items-center gap-0.5"
+          :style="{
+          backgroundColor: `${task.size.color}4D`,
+          boxShadow: `0 1px 10px ${task.size.color}4D`
+        }"
+        >
+          <img class="icon" :src="task.size.iconUrl" :alt="task.size.name">
+          <p class="tagText text-xs">{{ task.size.name }}</p>
+        </li>
+        <li
+          class="tag flex items-center gap-0.5"
+          :style="{
+          backgroundColor: `${task.priority.color}9D`,
+          boxShadow: `0 1px 10px ${task.priority.color}6D`
+        }"
+        >
+          <p class="tagText text-xs">{{ task.priority.name }} приоритет</p>
+        </li>
+      </ul>
+      <div class="buttonContainer flex justify-center items-center gap-0.5">
+        <button @click="handleEditTask" class="button">
+          <img class="w-full" src="/icons/edit.svg" alt="Кнопка редактирования">
+        </button>
+        <button @click="() => store.removeTask(task.id)" class="button">
+          <img class="w-full" src="/icons/trashCan.svg" alt="Кнопка удаления">
+        </button>
+      </div>
+    </div>
+
+    <div class="comment-container" v-if="task.comment">
+      <h4 class="comment-title text-sm">Комментарий к исправлению:</h4>
+      <p class="comment text-xs">
+        {{ task.comment }}
+      </p>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+  .task-card {
+    position: relative;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 4px 8px 8px;
+    background: #2d2d2d;
+  }
+
+  .task-card-header {
+    padding-right:80px;
+  }
+
+  .task-title {
+    color: #eee;
+  }
+
+  .task-description {
+    color: #999;
+  }
+
+  .task-date {
+    position: absolute;
+    right: 12px;
+    top: 4px;
+    color: #999;
+  }
+
+  .task-deadline {
+    color: #92a1ff;
+    padding-bottom: 4px;
+  }
+
+  .task-deadline.warning {
+    color: #ffdb96;
+  }
+
+  .task-deadline.danger {
+    color: #ff5b59;
+  }
+
+  .tag {
+    padding: 4px 6px;
+    border-radius: 12px;
+  }
+
+  .roleTag {
+    background-color: #666dff;
+    box-shadow: 0 0 10px #666dff7d;
+  }
+
+  .iconTag {
+    padding: 1px 6px 1px 0;
+    max-height: 24px;
+  }
+
+  .tagText {
+    color: #fff;
+    opacity: 0.8;
+  }
+
+  .icon {
+    width: 24px;
+  }
+
+  .buttonContainer {
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+  }
+
+  .button {
+    padding: 4px;
+    width: 32px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.25s ease-in-out;
+  }
+
+  .button:hover {
+    transform: translateY(-1px);
+    background-color: #4d4d4d;
+  }
+
+  .comment-container {
+    border-radius: 8px;
+    background-color: #333;
+    padding: 4px;
+  }
+
+  .comment-title {
+    color: #fff;
+  }
+
+  .comment {
+    color: #ccc;
+  }
+</style>
