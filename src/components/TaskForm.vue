@@ -39,7 +39,6 @@ const handleSubmit = (e: Event) => {
   formState.value.createdAt = new Date();
   formState.value.updatedAt = new Date();
 
-  console.log(formState.value);
   taskStore.addTask(formState.value);
 }
 </script>

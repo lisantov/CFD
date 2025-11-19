@@ -8,7 +8,7 @@ const modalStore = useModalStore();
 
 <template>
   <header class="header w-full">
-    <h1 class="title text-3xl">Extra Canban</h1>
+    <h1 class="title text-3xl">Express Canban</h1>
   </header>
 
   <main class="main grid gap-6 min-w-max">
